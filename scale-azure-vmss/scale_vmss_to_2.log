@@ -1,0 +1,677 @@
+DEBUG: cli.knack.cli: Command arguments: ['vmss', 'scale', '--name', 'MyVmss', '--new-capacity', '2', '--resource-group', 'rg-anayltics', '--debug']
+DEBUG: cli.knack.cli: __init__ debug log:
+Cannot enable color.
+DEBUG: cli.knack.cli: Event: Cli.PreExecute []
+DEBUG: cli.knack.cli: Event: CommandParser.OnGlobalArgumentsCreate [<function CLILogging.on_global_arguments at 0x1037911c0>, <function OutputProducer.on_global_arguments at 0x10383c360>, <function CLIQuery.on_global_arguments at 0x10386de40>]
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPreCommandTableCreate []
+DEBUG: cli.azure.cli.core: Modules found from index for 'vmss': ['azure.cli.command_modules.vm']
+DEBUG: cli.azure.cli.core: Loading command modules:
+DEBUG: cli.azure.cli.core: Name                  Load Time    Groups  Commands
+DEBUG: cli.azure.cli.core: vm                        0.280        60       241
+DEBUG: cli.azure.cli.core: Total (1)                 0.280        60       241
+DEBUG: cli.azure.cli.core: These extensions are not installed and will be skipped: ['azext_ai_examples', 'azext_next']
+DEBUG: cli.azure.cli.core: Loading extensions:
+DEBUG: cli.azure.cli.core: Name                  Load Time    Groups  Commands  Directory
+DEBUG: cli.azure.cli.core: Total (0)                 0.000         0         0
+DEBUG: cli.azure.cli.core: Loaded 60 groups, 241 commands.
+DEBUG: cli.azure.cli.core: Found a match in the command table.
+DEBUG: cli.azure.cli.core: Raw command  : vmss scale
+DEBUG: cli.azure.cli.core: Command table: vmss scale
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPreCommandTableTruncate [<function AzCliLogging.init_command_file_logging at 0x10517aac0>]
+DEBUG: cli.azure.cli.core.azlogging: metadata file logging enabled - writing logs to '/Users/pichuang/.azure/commands/2024-04-02.18-51-13.vmss_scale.89947.log'.
+INFO: az_command_data_logger: command args: vmss scale --name {} --new-capacity {} --resource-group {} --debug
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPreArgumentLoad [<function register_global_subscription_argument.<locals>.add_subscription_parameter at 0x1051cf7e0>]
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPostArgumentLoad []
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPostCommandTableCreate [<function register_ids_argument.<locals>.add_ids_arguments at 0x1051cf880>, <function register_cache_arguments.<locals>.add_cache_arguments at 0x1051cf9c0>]
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnCommandTableLoaded []
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPreParseArgs []
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPostParseArgs [<function OutputProducer.handle_output_argument at 0x10383c400>, <function CLIQuery.handle_query_parameter at 0x10386dee0>, <function register_ids_argument.<locals>.parse_ids_arguments at 0x1051cf920>]
+DEBUG: cli.azure.cli.core.commands.client_factory: Getting management service client client_type=ComputeManagementClient
+DEBUG: cli.azure.cli.core.auth.persistence: build_persistence: location='/Users/pichuang/.azure/msal_token_cache.json', encrypt=False
+DEBUG: cli.azure.cli.core.auth.binary_cache: load: /Users/pichuang/.azure/msal_http_cache.bin
+DEBUG: urllib3.util.retry: Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG: msal.authority: openid_config = {'token_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic'], 'jwks_uri': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/kerberos', 'tenant_region_scope': 'NA', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+DEBUG: msal.application: Broker enabled? None
+DEBUG: cli.azure.cli.core.auth.credential_adaptor: CredentialAdaptor.get_token: scopes=('https://management.core.windows.net//.default',), kwargs={}
+DEBUG: cli.azure.cli.core.auth.msal_authentication: UserCredential.get_token: scopes=('https://management.core.windows.net//.default',), claims=None, kwargs={}
+DEBUG: msal.application: Cache hit an AT
+DEBUG: msal.telemetry: Generate or reuse correlation_id: ef2e5399-0441-403c-97b4-cdc45ee1d896
+DEBUG: cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Compute/virtualMachineScaleSets/MyVmss?api-version=2023-09-01'
+DEBUG: cli.azure.cli.core.sdk.policies: Request method: 'GET'
+DEBUG: cli.azure.cli.core.sdk.policies: Request headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Accept': 'application/json'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-client-request-id': 'ec485150-f0de-11ee-8fde-76c47aa90249'
+DEBUG: cli.azure.cli.core.sdk.policies:     'CommandName': 'vmss scale'
+DEBUG: cli.azure.cli.core.sdk.policies:     'ParameterSetName': '--name --new-capacity --resource-group --debug'
+DEBUG: cli.azure.cli.core.sdk.policies:     'User-Agent': 'AZURECLI/2.58.0 (HOMEBREW) azsdk-python-core/1.28.0 Python/3.11.8 (macOS-14.4.1-arm64-arm-64bit)'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Authorization': '*****'
+DEBUG: cli.azure.cli.core.sdk.policies: Request body:
+DEBUG: cli.azure.cli.core.sdk.policies: This request has no body
+DEBUG: urllib3.connectionpool: Starting new HTTPS connection (1): management.azure.com:443
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Compute/virtualMachineScaleSets/MyVmss?api-version=2023-09-01 HTTP/1.1" 200 3897
+DEBUG: cli.azure.cli.core.sdk.policies: Response status: 200
+DEBUG: cli.azure.cli.core.sdk.policies: Response headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Cache-Control': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Pragma': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '3897'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json; charset=utf-8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Expires': '-1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-resource': 'Microsoft.Compute/GetVMScaleSetSubscriptionMaximum;2399,Microsoft.Compute/GetVMScaleSetResource;35'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-request-id': '047247dc-6634-4940-9012-d2b0dc0c9ecf'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-subscription-reads': '11998'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': 'ae1242d5-a4b7-4f4e-95d3-e7ea44f7a38e'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-routing-request-id': 'JAPANWEST:20240402T105114Z:ae1242d5-a4b7-4f4e-95d3-e7ea44f7a38e'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Content-Type-Options': 'nosniff'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Cache': 'CONFIG_NOCACHE'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-MSEdge-Ref': 'Ref A: 061795B7F8F443F293AC25035C12916D Ref B: TYO201100113009 Ref C: 2024-04-02T10:51:14Z'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Date': 'Tue, 02 Apr 2024 10:51:14 GMT'
+DEBUG: cli.azure.cli.core.sdk.policies: Response content:
+DEBUG: cli.azure.cli.core.sdk.policies: {
+  "name": "MyVmss",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Compute/virtualMachineScaleSets/MyVmss",
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "location": "taiwannorth",
+  "tags": {},
+  "sku": {
+    "name": "Standard_DS1_v2",
+    "tier": "Standard",
+    "capacity": 1
+  },
+  "properties": {
+    "singlePlacementGroup": false,
+    "orchestrationMode": "Flexible",
+    "upgradePolicy": {
+      "mode": "Manual"
+    },
+    "virtualMachineProfile": {
+      "osProfile": {
+        "computerNamePrefix": "MyVmss",
+        "adminUsername": "pichuang",
+        "linuxConfiguration": {
+          "disablePasswordAuthentication": true,
+          "ssh": {
+            "publicKeys": [
+              {
+                "path": "/home/pichuang/.ssh/authorized_keys",
+                "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMuzPZLL/FvsTzzfwscmRMjGGwBkEQnIeqeQq6k7gBejKZVlFJ1lHxqxj/sNNuiLsQk+MLb9JHSsHN9V4y9hPnk1RTicoS019ZS6F+jhT37LcrAmmWkdszeFlIdgAYf26RpXEkwwW5Hb1i9xwV6pY3qZdlU4CgY2psv5CEABWM6UR1gcbXisnhr301YyBgy9AEit3vsTwZXTL3J1Ela8nf++nLYrbKQJHZrX3R/QFf89534VCG9aN50pIAIG3teP4UAdK62XZy+Cb/jNA2MbDvnnkJc0OQNho3nOAyErZVlIU/nuVoC32tGeL3paOCjCI6Sb+jBHijSY442gtITyEF"
+              }
+            ]
+          },
+          "provisionVMAgent": true,
+          "patchSettings": {
+            "patchMode": "ImageDefault",
+            "assessmentMode": "ImageDefault"
+          },
+          "enableVMAgentPlatformUpdates": false
+        },
+        "secrets": [],
+        "allowExtensionOperations": true,
+        "requireGuestProvisionSignal": true
+      },
+      "storageProfile": {
+        "osDisk": {
+          "osType": "Linux",
+          "createOption": "FromImage",
+          "caching": "ReadWrite",
+          "managedDisk": {
+            "storageAccountType": "Premium_LRS"
+          },
+          "deleteOption": "Delete",
+          "diskSizeGB": 40
+        },
+        "imageReference": {
+          "publisher": "Canonical",
+          "offer": "0001-com-ubuntu-server-jammy",
+          "sku": "22_04-lts-gen2",
+          "version": "latest"
+        },
+        "dataDisks": [
+          {
+            "lun": 0,
+            "createOption": "Empty",
+            "caching": "None",
+            "managedDisk": {
+              "storageAccountType": "Premium_LRS"
+            },
+            "deleteOption": "Delete",
+            "diskSizeGB": 2
+          }
+        ],
+        "diskControllerType": "SCSI"
+      },
+      "networkProfile": {"networkApiVersion":"2020-11-01","networkInterfaceConfigurations":[{"name":"myvmsfe6fNic","properties":{"primary":true,"disableTcpStateTracking":false,"enableIPForwarding":false,"auxiliaryMode":"None","auxiliarySku":"None","deleteOption":"Delete","ipConfigurations":[{"name":"myvmsfe6fIPConfig","properties":{"privateIPAddressVersion":"IPv4","subnet":{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/virtualNetworks/MyVmVNET/subnets/MyVmSubnet"},"applicationSecurityGroups":[],"loadBalancerBackendAddressPools":[{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/loadBalancers/MyVmssLB/backendAddressPools/MyVmssLBBEPool"}],"applicationGatewayBackendAddressPools":[]}}],"networkSecurityGroup":{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/networkSecurityGroups/MyVmssNSG"},"dnsSettings":{"dnsServers":[]}}}]},
+      "timeCreated": "2024-04-02T10:46:58.9897939+00:00"
+    },
+    "provisioningState": "Succeeded",
+    "uniqueId": "d886a3de-4c4d-43e2-bc1d-c1ff5bf374cd",
+    "platformFaultDomainCount": 1,
+    "constrainedMaximumCapacity": false,
+    "timeCreated": "2024-04-02T10:46:58.9897939+00:00"
+  }
+}
+DEBUG: cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Compute/virtualMachineScaleSets/MyVmss?api-version=2023-09-01'
+DEBUG: cli.azure.cli.core.sdk.policies: Request method: 'PUT'
+DEBUG: cli.azure.cli.core.sdk.policies: Request headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '98'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Accept': 'application/json'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-client-request-id': 'ec485150-f0de-11ee-8fde-76c47aa90249'
+DEBUG: cli.azure.cli.core.sdk.policies:     'CommandName': 'vmss scale'
+DEBUG: cli.azure.cli.core.sdk.policies:     'ParameterSetName': '--name --new-capacity --resource-group --debug'
+DEBUG: cli.azure.cli.core.sdk.policies:     'User-Agent': 'AZURECLI/2.58.0 (HOMEBREW) azsdk-python-core/1.28.0 Python/3.11.8 (macOS-14.4.1-arm64-arm-64bit)'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Authorization': '*****'
+DEBUG: cli.azure.cli.core.sdk.policies: Request body:
+DEBUG: cli.azure.cli.core.sdk.policies: {"location": "taiwannorth", "sku": {"name": "Standard_DS1_v2", "tier": "Standard", "capacity": 2}}
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "PUT /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Compute/virtualMachineScaleSets/MyVmss?api-version=2023-09-01 HTTP/1.1" 200 3896
+DEBUG: cli.azure.cli.core.sdk.policies: Response status: 200
+DEBUG: cli.azure.cli.core.sdk.policies: Response headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Cache-Control': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Pragma': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '3896'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json; charset=utf-8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Expires': '-1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Azure-AsyncOperation': 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Compute/locations/TaiwanNorth/operations/56c08fb6-8501-45e2-9901-1053c09a3379?p=fc5b00a6-f760-4a0f-bf0b-7d5a2cd17907&api-version=2023-09-01&t=638476518785280398&c=MIIHADCCBeigAwIBAgITHgPpxUXboRMa1MKXpgAAA-nFRTANBgkqhkiG9w0BAQsFADBEMRMwEQYKCZImiZPyLGQBGRYDR0JMMRMwEQYKCZImiZPyLGQBGRYDQU1FMRgwFgYDVQQDEw9BTUUgSW5mcmEgQ0EgMDYwHhcNMjQwMTMxMDEyODE0WhcNMjUwMTI1MDEyODE0WjBAMT4wPAYDVQQDEzVhc3luY29wZXJhdGlvbnNpZ25pbmdjZXJ0aWZpY2F0ZS5tYW5hZ2VtZW50LmF6dXJlLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALigL_YnYGZkISCK9BFT_dzpf963u9bRlY_IhMLl8TQ-WhRb_jA3SHowq9D2t_7jJQKGI6GCCp7rr_bZzTa8pQN0C79lTnY73uIO4_vOTLEbO-r_WF4dIaOg1uhvkHUiwSieW1h1jjj7k_SIuMHohy7tAM8iZ7-ZfFZtnQlOn2e3i4JeBaiEwNF6m94GOMe29LMbaearVgY8Q9dpoqHRILM6oc_lOriZ7rsNAjKOxUZcp1Fo9palZ-3PsJ20ivSPfnC4uawbHqM6z14aGUgr9gJQWitq-3CYzqxU1A3majqauDuR74sxRgfJpBe8xHH2ykGfx9eRrJVbo9gtcbtMplUCAwEAAaOCA-0wggPpMCcGCSsGAQQBgjcVCgQaMBgwCgYIKwYBBQUHAwEwCgYIKwYBBQUHAwIwPQYJKwYBBAGCNxUHBDAwLgYmKwYBBAGCNxUIhpDjDYTVtHiE8Ys-hZvdFs6dEoFggvX2K4Py0SACAWQCAQowggHLBggrBgEFBQcBAQSCAb0wggG5MGMGCCsGAQUFBzAChldodHRwOi8vY3JsLm1pY3Jvc29mdC5jb20vcGtpaW5mcmEvQ2VydHMvQkwyUEtJSU5UQ0EwMi5BTUUuR0JMX0FNRSUyMEluZnJhJTIwQ0ElMjAwNi5jcnQwUwYIKwYBBQUHMAKGR2h0dHA6Ly9jcmwxLmFtZS5nYmwvYWlhL0JMMlBLSUlOVENBMDIuQU1FLkdCTF9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3J0MFMGCCsGAQUFBzAChkdodHRwOi8vY3JsMi5hbWUuZ2JsL2FpYS9CTDJQS0lJTlRDQTAyLkFNRS5HQkxfQU1FJTIwSW5mcmElMjBDQSUyMDA2LmNydDBTBggrBgEFBQcwAoZHaHR0cDovL2NybDMuYW1lLmdibC9haWEvQkwyUEtJSU5UQ0EwMi5BTUUuR0JMX0FNRSUyMEluZnJhJTIwQ0ElMjAwNi5jcnQwUwYIKwYBBQUHMAKGR2h0dHA6Ly9jcmw0LmFtZS5nYmwvYWlhL0JMMlBLSUlOVENBMDIuQU1FLkdCTF9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3J0MB0GA1UdDgQWBBQPt2y76WhKhKfsmhaKSl6_-ABVUzAOBgNVHQ8BAf8EBAMCBaAwggEmBgNVHR8EggEdMIIBGTCCARWgggERoIIBDYY_aHR0cDovL2NybC5taWNyb3NvZnQuY29tL3BraWluZnJhL0NSTC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMS5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMi5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMy5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsNC5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JsMBcGA1UdIAQQMA4wDAYKKwYBBAGCN3sBATAfBgNVHSMEGDAWgBTxRmjG8cPwKy19i2rhsvm-NfzRQTAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDQYJKoZIhvcNAQELBQADggEBAKfiXIDVAa163uWLQJ_KFJsJINDdJsPSYCj10C9FzlRIDm8NLFTcqHUht2yzNYw9sA0XiYBlshas0NHr_NjnK0vPf1AFoIyNw9OdZs75NKY4kH247gfF_AS1HoQheB_afmz95Kg4gW5BkeRfe92S6InmCXmdMN7m4vzQEeTuhvRoGh2iXCWxstqVMx28FAQxHa3Prn8dFtxou7RnYaFULimejLV78X4z6uHJwh1OmW9uhn3qd1LDrR7JAljm4WMGkEGOhjJfM5_k-EZGiorRgudd5Jd9zM4oxFvG6mwyZy5dGBJRbH-yBernSv2B_wejt8UxccrqN-zuk7CfQWoYGh0&s=TzwRQ1qUKr0cmvzWCDj42-236mN0AFAZFY_Lw0tikvBY5m_rU1lsYB7fe_Fgww8AeU9YqH_h54C3Ub-6jMFTcLO1WZCl3eE8FQuz20eB7XT4cKEtTiT1gY9EyNDp9ZTayxuH25BXZmvVkk6fdxYIiltTijAR3R6Qi7rJ0-aRp43rCpXT8A8GAIhVIst1toi_PKkkjS0nkHyuzcWgbEXAJs8iU3lxYTvSsberx1U8dh_dazaw_4RUsJIaj70qJ9N5yf7DHgQxyU_JiTgtbxyJ-vH6uKWrwArzGPp4doYUEdRHBsnekS_23NlJ1PI3gBQaEomv71JnH9uUtf5SEl63qw&h=6fiLgMQstXHbSKMCSRc8I9WH4Kd3-v7Ub1T5CNAgMWI'
+DEBUG: cli.azure.cli.core.sdk.policies:     'azure-asyncnotification': 'Enabled'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-resource': 'Microsoft.Compute/CreateVMScaleSetSubscriptionMaximum;374,Microsoft.Compute/CreateVMScaleSetResource;11'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-request-id': '56c08fb6-8501-45e2-9901-1053c09a3379'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-subscription-writes': '1199'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': '7974b772-da73-486a-aefb-cf6502480408'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-routing-request-id': 'JAPANWEST:20240402T105118Z:7974b772-da73-486a-aefb-cf6502480408'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Content-Type-Options': 'nosniff'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Cache': 'CONFIG_NOCACHE'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-MSEdge-Ref': 'Ref A: 47FC4D77EFAB4455AA5EC9EDA3E05830 Ref B: TYO201100113009 Ref C: 2024-04-02T10:51:14Z'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Date': 'Tue, 02 Apr 2024 10:51:18 GMT'
+DEBUG: cli.azure.cli.core.sdk.policies: Response content:
+DEBUG: cli.azure.cli.core.sdk.policies: {
+  "name": "MyVmss",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Compute/virtualMachineScaleSets/MyVmss",
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "location": "taiwannorth",
+  "tags": {},
+  "sku": {
+    "name": "Standard_DS1_v2",
+    "tier": "Standard",
+    "capacity": 2
+  },
+  "properties": {
+    "singlePlacementGroup": false,
+    "orchestrationMode": "Flexible",
+    "upgradePolicy": {
+      "mode": "Manual"
+    },
+    "virtualMachineProfile": {
+      "osProfile": {
+        "computerNamePrefix": "MyVmss",
+        "adminUsername": "pichuang",
+        "linuxConfiguration": {
+          "disablePasswordAuthentication": true,
+          "ssh": {
+            "publicKeys": [
+              {
+                "path": "/home/pichuang/.ssh/authorized_keys",
+                "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMuzPZLL/FvsTzzfwscmRMjGGwBkEQnIeqeQq6k7gBejKZVlFJ1lHxqxj/sNNuiLsQk+MLb9JHSsHN9V4y9hPnk1RTicoS019ZS6F+jhT37LcrAmmWkdszeFlIdgAYf26RpXEkwwW5Hb1i9xwV6pY3qZdlU4CgY2psv5CEABWM6UR1gcbXisnhr301YyBgy9AEit3vsTwZXTL3J1Ela8nf++nLYrbKQJHZrX3R/QFf89534VCG9aN50pIAIG3teP4UAdK62XZy+Cb/jNA2MbDvnnkJc0OQNho3nOAyErZVlIU/nuVoC32tGeL3paOCjCI6Sb+jBHijSY442gtITyEF"
+              }
+            ]
+          },
+          "provisionVMAgent": true,
+          "patchSettings": {
+            "patchMode": "ImageDefault",
+            "assessmentMode": "ImageDefault"
+          },
+          "enableVMAgentPlatformUpdates": false
+        },
+        "secrets": [],
+        "allowExtensionOperations": true,
+        "requireGuestProvisionSignal": true
+      },
+      "storageProfile": {
+        "osDisk": {
+          "osType": "Linux",
+          "createOption": "FromImage",
+          "caching": "ReadWrite",
+          "managedDisk": {
+            "storageAccountType": "Premium_LRS"
+          },
+          "deleteOption": "Delete",
+          "diskSizeGB": 40
+        },
+        "imageReference": {
+          "publisher": "Canonical",
+          "offer": "0001-com-ubuntu-server-jammy",
+          "sku": "22_04-lts-gen2",
+          "version": "latest"
+        },
+        "dataDisks": [
+          {
+            "lun": 0,
+            "createOption": "Empty",
+            "caching": "None",
+            "managedDisk": {
+              "storageAccountType": "Premium_LRS"
+            },
+            "deleteOption": "Delete",
+            "diskSizeGB": 2
+          }
+        ],
+        "diskControllerType": "SCSI"
+      },
+      "networkProfile": {"networkApiVersion":"2020-11-01","networkInterfaceConfigurations":[{"name":"myvmsfe6fNic","properties":{"primary":true,"disableTcpStateTracking":false,"enableIPForwarding":false,"auxiliaryMode":"None","auxiliarySku":"None","deleteOption":"Delete","ipConfigurations":[{"name":"myvmsfe6fIPConfig","properties":{"privateIPAddressVersion":"IPv4","subnet":{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/virtualNetworks/MyVmVNET/subnets/MyVmSubnet"},"applicationSecurityGroups":[],"loadBalancerBackendAddressPools":[{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/loadBalancers/MyVmssLB/backendAddressPools/MyVmssLBBEPool"}],"applicationGatewayBackendAddressPools":[]}}],"networkSecurityGroup":{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/networkSecurityGroups/MyVmssNSG"},"dnsSettings":{"dnsServers":[]}}}]},
+      "timeCreated": "2024-04-02T10:46:58.9897939+00:00"
+    },
+    "provisioningState": "Updating",
+    "uniqueId": "d886a3de-4c4d-43e2-bc1d-c1ff5bf374cd",
+    "platformFaultDomainCount": 1,
+    "constrainedMaximumCapacity": false,
+    "timeCreated": "2024-04-02T10:46:58.9897939+00:00"
+  }
+}
+DEBUG: cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Compute/locations/TaiwanNorth/operations/56c08fb6-8501-45e2-9901-1053c09a3379?p=fc5b00a6-f760-4a0f-bf0b-7d5a2cd17907&api-version=2023-09-01&t=638476518785280398&c=MIIHADCCBeigAwIBAgITHgPpxUXboRMa1MKXpgAAA-nFRTANBgkqhkiG9w0BAQsFADBEMRMwEQYKCZImiZPyLGQBGRYDR0JMMRMwEQYKCZImiZPyLGQBGRYDQU1FMRgwFgYDVQQDEw9BTUUgSW5mcmEgQ0EgMDYwHhcNMjQwMTMxMDEyODE0WhcNMjUwMTI1MDEyODE0WjBAMT4wPAYDVQQDEzVhc3luY29wZXJhdGlvbnNpZ25pbmdjZXJ0aWZpY2F0ZS5tYW5hZ2VtZW50LmF6dXJlLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALigL_YnYGZkISCK9BFT_dzpf963u9bRlY_IhMLl8TQ-WhRb_jA3SHowq9D2t_7jJQKGI6GCCp7rr_bZzTa8pQN0C79lTnY73uIO4_vOTLEbO-r_WF4dIaOg1uhvkHUiwSieW1h1jjj7k_SIuMHohy7tAM8iZ7-ZfFZtnQlOn2e3i4JeBaiEwNF6m94GOMe29LMbaearVgY8Q9dpoqHRILM6oc_lOriZ7rsNAjKOxUZcp1Fo9palZ-3PsJ20ivSPfnC4uawbHqM6z14aGUgr9gJQWitq-3CYzqxU1A3majqauDuR74sxRgfJpBe8xHH2ykGfx9eRrJVbo9gtcbtMplUCAwEAAaOCA-0wggPpMCcGCSsGAQQBgjcVCgQaMBgwCgYIKwYBBQUHAwEwCgYIKwYBBQUHAwIwPQYJKwYBBAGCNxUHBDAwLgYmKwYBBAGCNxUIhpDjDYTVtHiE8Ys-hZvdFs6dEoFggvX2K4Py0SACAWQCAQowggHLBggrBgEFBQcBAQSCAb0wggG5MGMGCCsGAQUFBzAChldodHRwOi8vY3JsLm1pY3Jvc29mdC5jb20vcGtpaW5mcmEvQ2VydHMvQkwyUEtJSU5UQ0EwMi5BTUUuR0JMX0FNRSUyMEluZnJhJTIwQ0ElMjAwNi5jcnQwUwYIKwYBBQUHMAKGR2h0dHA6Ly9jcmwxLmFtZS5nYmwvYWlhL0JMMlBLSUlOVENBMDIuQU1FLkdCTF9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3J0MFMGCCsGAQUFBzAChkdodHRwOi8vY3JsMi5hbWUuZ2JsL2FpYS9CTDJQS0lJTlRDQTAyLkFNRS5HQkxfQU1FJTIwSW5mcmElMjBDQSUyMDA2LmNydDBTBggrBgEFBQcwAoZHaHR0cDovL2NybDMuYW1lLmdibC9haWEvQkwyUEtJSU5UQ0EwMi5BTUUuR0JMX0FNRSUyMEluZnJhJTIwQ0ElMjAwNi5jcnQwUwYIKwYBBQUHMAKGR2h0dHA6Ly9jcmw0LmFtZS5nYmwvYWlhL0JMMlBLSUlOVENBMDIuQU1FLkdCTF9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3J0MB0GA1UdDgQWBBQPt2y76WhKhKfsmhaKSl6_-ABVUzAOBgNVHQ8BAf8EBAMCBaAwggEmBgNVHR8EggEdMIIBGTCCARWgggERoIIBDYY_aHR0cDovL2NybC5taWNyb3NvZnQuY29tL3BraWluZnJhL0NSTC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMS5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMi5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMy5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsNC5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JsMBcGA1UdIAQQMA4wDAYKKwYBBAGCN3sBATAfBgNVHSMEGDAWgBTxRmjG8cPwKy19i2rhsvm-NfzRQTAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDQYJKoZIhvcNAQELBQADggEBAKfiXIDVAa163uWLQJ_KFJsJINDdJsPSYCj10C9FzlRIDm8NLFTcqHUht2yzNYw9sA0XiYBlshas0NHr_NjnK0vPf1AFoIyNw9OdZs75NKY4kH247gfF_AS1HoQheB_afmz95Kg4gW5BkeRfe92S6InmCXmdMN7m4vzQEeTuhvRoGh2iXCWxstqVMx28FAQxHa3Prn8dFtxou7RnYaFULimejLV78X4z6uHJwh1OmW9uhn3qd1LDrR7JAljm4WMGkEGOhjJfM5_k-EZGiorRgudd5Jd9zM4oxFvG6mwyZy5dGBJRbH-yBernSv2B_wejt8UxccrqN-zuk7CfQWoYGh0&s=TzwRQ1qUKr0cmvzWCDj42-236mN0AFAZFY_Lw0tikvBY5m_rU1lsYB7fe_Fgww8AeU9YqH_h54C3Ub-6jMFTcLO1WZCl3eE8FQuz20eB7XT4cKEtTiT1gY9EyNDp9ZTayxuH25BXZmvVkk6fdxYIiltTijAR3R6Qi7rJ0-aRp43rCpXT8A8GAIhVIst1toi_PKkkjS0nkHyuzcWgbEXAJs8iU3lxYTvSsberx1U8dh_dazaw_4RUsJIaj70qJ9N5yf7DHgQxyU_JiTgtbxyJ-vH6uKWrwArzGPp4doYUEdRHBsnekS_23NlJ1PI3gBQaEomv71JnH9uUtf5SEl63qw&h=6fiLgMQstXHbSKMCSRc8I9WH4Kd3-v7Ub1T5CNAgMWI'
+DEBUG: cli.azure.cli.core.sdk.policies: Request method: 'GET'
+DEBUG: cli.azure.cli.core.sdk.policies: Request headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-client-request-id': 'ec485150-f0de-11ee-8fde-76c47aa90249'
+DEBUG: cli.azure.cli.core.sdk.policies:     'CommandName': 'vmss scale'
+DEBUG: cli.azure.cli.core.sdk.policies:     'ParameterSetName': '--name --new-capacity --resource-group --debug'
+DEBUG: cli.azure.cli.core.sdk.policies:     'User-Agent': 'AZURECLI/2.58.0 (HOMEBREW) azsdk-python-core/1.28.0 Python/3.11.8 (macOS-14.4.1-arm64-arm-64bit)'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Authorization': '*****'
+DEBUG: cli.azure.cli.core.sdk.policies: Request body:
+DEBUG: cli.azure.cli.core.sdk.policies: This request has no body
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Compute/locations/TaiwanNorth/operations/56c08fb6-8501-45e2-9901-1053c09a3379?p=fc5b00a6-f760-4a0f-bf0b-7d5a2cd17907&api-version=2023-09-01&t=638476518785280398&c=MIIHADCCBeigAwIBAgITHgPpxUXboRMa1MKXpgAAA-nFRTANBgkqhkiG9w0BAQsFADBEMRMwEQYKCZImiZPyLGQBGRYDR0JMMRMwEQYKCZImiZPyLGQBGRYDQU1FMRgwFgYDVQQDEw9BTUUgSW5mcmEgQ0EgMDYwHhcNMjQwMTMxMDEyODE0WhcNMjUwMTI1MDEyODE0WjBAMT4wPAYDVQQDEzVhc3luY29wZXJhdGlvbnNpZ25pbmdjZXJ0aWZpY2F0ZS5tYW5hZ2VtZW50LmF6dXJlLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALigL_YnYGZkISCK9BFT_dzpf963u9bRlY_IhMLl8TQ-WhRb_jA3SHowq9D2t_7jJQKGI6GCCp7rr_bZzTa8pQN0C79lTnY73uIO4_vOTLEbO-r_WF4dIaOg1uhvkHUiwSieW1h1jjj7k_SIuMHohy7tAM8iZ7-ZfFZtnQlOn2e3i4JeBaiEwNF6m94GOMe29LMbaearVgY8Q9dpoqHRILM6oc_lOriZ7rsNAjKOxUZcp1Fo9palZ-3PsJ20ivSPfnC4uawbHqM6z14aGUgr9gJQWitq-3CYzqxU1A3majqauDuR74sxRgfJpBe8xHH2ykGfx9eRrJVbo9gtcbtMplUCAwEAAaOCA-0wggPpMCcGCSsGAQQBgjcVCgQaMBgwCgYIKwYBBQUHAwEwCgYIKwYBBQUHAwIwPQYJKwYBBAGCNxUHBDAwLgYmKwYBBAGCNxUIhpDjDYTVtHiE8Ys-hZvdFs6dEoFggvX2K4Py0SACAWQCAQowggHLBggrBgEFBQcBAQSCAb0wggG5MGMGCCsGAQUFBzAChldodHRwOi8vY3JsLm1pY3Jvc29mdC5jb20vcGtpaW5mcmEvQ2VydHMvQkwyUEtJSU5UQ0EwMi5BTUUuR0JMX0FNRSUyMEluZnJhJTIwQ0ElMjAwNi5jcnQwUwYIKwYBBQUHMAKGR2h0dHA6Ly9jcmwxLmFtZS5nYmwvYWlhL0JMMlBLSUlOVENBMDIuQU1FLkdCTF9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3J0MFMGCCsGAQUFBzAChkdodHRwOi8vY3JsMi5hbWUuZ2JsL2FpYS9CTDJQS0lJTlRDQTAyLkFNRS5HQkxfQU1FJTIwSW5mcmElMjBDQSUyMDA2LmNydDBTBggrBgEFBQcwAoZHaHR0cDovL2NybDMuYW1lLmdibC9haWEvQkwyUEtJSU5UQ0EwMi5BTUUuR0JMX0FNRSUyMEluZnJhJTIwQ0ElMjAwNi5jcnQwUwYIKwYBBQUHMAKGR2h0dHA6Ly9jcmw0LmFtZS5nYmwvYWlhL0JMMlBLSUlOVENBMDIuQU1FLkdCTF9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3J0MB0GA1UdDgQWBBQPt2y76WhKhKfsmhaKSl6_-ABVUzAOBgNVHQ8BAf8EBAMCBaAwggEmBgNVHR8EggEdMIIBGTCCARWgggERoIIBDYY_aHR0cDovL2NybC5taWNyb3NvZnQuY29tL3BraWluZnJhL0NSTC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMS5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMi5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMy5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsNC5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JsMBcGA1UdIAQQMA4wDAYKKwYBBAGCN3sBATAfBgNVHSMEGDAWgBTxRmjG8cPwKy19i2rhsvm-NfzRQTAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDQYJKoZIhvcNAQELBQADggEBAKfiXIDVAa163uWLQJ_KFJsJINDdJsPSYCj10C9FzlRIDm8NLFTcqHUht2yzNYw9sA0XiYBlshas0NHr_NjnK0vPf1AFoIyNw9OdZs75NKY4kH247gfF_AS1HoQheB_afmz95Kg4gW5BkeRfe92S6InmCXmdMN7m4vzQEeTuhvRoGh2iXCWxstqVMx28FAQxHa3Prn8dFtxou7RnYaFULimejLV78X4z6uHJwh1OmW9uhn3qd1LDrR7JAljm4WMGkEGOhjJfM5_k-EZGiorRgudd5Jd9zM4oxFvG6mwyZy5dGBJRbH-yBernSv2B_wejt8UxccrqN-zuk7CfQWoYGh0&s=TzwRQ1qUKr0cmvzWCDj42-236mN0AFAZFY_Lw0tikvBY5m_rU1lsYB7fe_Fgww8AeU9YqH_h54C3Ub-6jMFTcLO1WZCl3eE8FQuz20eB7XT4cKEtTiT1gY9EyNDp9ZTayxuH25BXZmvVkk6fdxYIiltTijAR3R6Qi7rJ0-aRp43rCpXT8A8GAIhVIst1toi_PKkkjS0nkHyuzcWgbEXAJs8iU3lxYTvSsberx1U8dh_dazaw_4RUsJIaj70qJ9N5yf7DHgQxyU_JiTgtbxyJ-vH6uKWrwArzGPp4doYUEdRHBsnekS_23NlJ1PI3gBQaEomv71JnH9uUtf5SEl63qw&h=6fiLgMQstXHbSKMCSRc8I9WH4Kd3-v7Ub1T5CNAgMWI HTTP/1.1" 200 134
+DEBUG: cli.azure.cli.core.sdk.policies: Response status: 200
+DEBUG: cli.azure.cli.core.sdk.policies: Response headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Cache-Control': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Pragma': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '134'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json; charset=utf-8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Expires': '-1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-resource': 'Microsoft.Compute/GetOperationResource;44,Microsoft.Compute/GetOperationSubscriptionMaximum;14999'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-request-id': '9f33f040-7636-4fce-a655-58fc4fa23f72'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-subscription-reads': '11999'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': '5e41146c-50d0-4b12-952b-723d61025eaf'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-routing-request-id': 'JAPANWEST:20240402T105118Z:5e41146c-50d0-4b12-952b-723d61025eaf'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Content-Type-Options': 'nosniff'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Cache': 'CONFIG_NOCACHE'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-MSEdge-Ref': 'Ref A: 681520421B0145B0A99918479E49B542 Ref B: TYO201100113009 Ref C: 2024-04-02T10:51:18Z'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Date': 'Tue, 02 Apr 2024 10:51:18 GMT'
+DEBUG: cli.azure.cli.core.sdk.policies: Response content:
+DEBUG: cli.azure.cli.core.sdk.policies: {
+  "startTime": "2024-04-02T10:51:18.1392101+00:00",
+  "status": "InProgress",
+  "name": "56c08fb6-8501-45e2-9901-1053c09a3379"
+}
+DEBUG: cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Compute/locations/TaiwanNorth/operations/56c08fb6-8501-45e2-9901-1053c09a3379?p=fc5b00a6-f760-4a0f-bf0b-7d5a2cd17907&api-version=2023-09-01&t=638476518785280398&c=MIIHADCCBeigAwIBAgITHgPpxUXboRMa1MKXpgAAA-nFRTANBgkqhkiG9w0BAQsFADBEMRMwEQYKCZImiZPyLGQBGRYDR0JMMRMwEQYKCZImiZPyLGQBGRYDQU1FMRgwFgYDVQQDEw9BTUUgSW5mcmEgQ0EgMDYwHhcNMjQwMTMxMDEyODE0WhcNMjUwMTI1MDEyODE0WjBAMT4wPAYDVQQDEzVhc3luY29wZXJhdGlvbnNpZ25pbmdjZXJ0aWZpY2F0ZS5tYW5hZ2VtZW50LmF6dXJlLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALigL_YnYGZkISCK9BFT_dzpf963u9bRlY_IhMLl8TQ-WhRb_jA3SHowq9D2t_7jJQKGI6GCCp7rr_bZzTa8pQN0C79lTnY73uIO4_vOTLEbO-r_WF4dIaOg1uhvkHUiwSieW1h1jjj7k_SIuMHohy7tAM8iZ7-ZfFZtnQlOn2e3i4JeBaiEwNF6m94GOMe29LMbaearVgY8Q9dpoqHRILM6oc_lOriZ7rsNAjKOxUZcp1Fo9palZ-3PsJ20ivSPfnC4uawbHqM6z14aGUgr9gJQWitq-3CYzqxU1A3majqauDuR74sxRgfJpBe8xHH2ykGfx9eRrJVbo9gtcbtMplUCAwEAAaOCA-0wggPpMCcGCSsGAQQBgjcVCgQaMBgwCgYIKwYBBQUHAwEwCgYIKwYBBQUHAwIwPQYJKwYBBAGCNxUHBDAwLgYmKwYBBAGCNxUIhpDjDYTVtHiE8Ys-hZvdFs6dEoFggvX2K4Py0SACAWQCAQowggHLBggrBgEFBQcBAQSCAb0wggG5MGMGCCsGAQUFBzAChldodHRwOi8vY3JsLm1pY3Jvc29mdC5jb20vcGtpaW5mcmEvQ2VydHMvQkwyUEtJSU5UQ0EwMi5BTUUuR0JMX0FNRSUyMEluZnJhJTIwQ0ElMjAwNi5jcnQwUwYIKwYBBQUHMAKGR2h0dHA6Ly9jcmwxLmFtZS5nYmwvYWlhL0JMMlBLSUlOVENBMDIuQU1FLkdCTF9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3J0MFMGCCsGAQUFBzAChkdodHRwOi8vY3JsMi5hbWUuZ2JsL2FpYS9CTDJQS0lJTlRDQTAyLkFNRS5HQkxfQU1FJTIwSW5mcmElMjBDQSUyMDA2LmNydDBTBggrBgEFBQcwAoZHaHR0cDovL2NybDMuYW1lLmdibC9haWEvQkwyUEtJSU5UQ0EwMi5BTUUuR0JMX0FNRSUyMEluZnJhJTIwQ0ElMjAwNi5jcnQwUwYIKwYBBQUHMAKGR2h0dHA6Ly9jcmw0LmFtZS5nYmwvYWlhL0JMMlBLSUlOVENBMDIuQU1FLkdCTF9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3J0MB0GA1UdDgQWBBQPt2y76WhKhKfsmhaKSl6_-ABVUzAOBgNVHQ8BAf8EBAMCBaAwggEmBgNVHR8EggEdMIIBGTCCARWgggERoIIBDYY_aHR0cDovL2NybC5taWNyb3NvZnQuY29tL3BraWluZnJhL0NSTC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMS5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMi5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMy5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsNC5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JsMBcGA1UdIAQQMA4wDAYKKwYBBAGCN3sBATAfBgNVHSMEGDAWgBTxRmjG8cPwKy19i2rhsvm-NfzRQTAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDQYJKoZIhvcNAQELBQADggEBAKfiXIDVAa163uWLQJ_KFJsJINDdJsPSYCj10C9FzlRIDm8NLFTcqHUht2yzNYw9sA0XiYBlshas0NHr_NjnK0vPf1AFoIyNw9OdZs75NKY4kH247gfF_AS1HoQheB_afmz95Kg4gW5BkeRfe92S6InmCXmdMN7m4vzQEeTuhvRoGh2iXCWxstqVMx28FAQxHa3Prn8dFtxou7RnYaFULimejLV78X4z6uHJwh1OmW9uhn3qd1LDrR7JAljm4WMGkEGOhjJfM5_k-EZGiorRgudd5Jd9zM4oxFvG6mwyZy5dGBJRbH-yBernSv2B_wejt8UxccrqN-zuk7CfQWoYGh0&s=TzwRQ1qUKr0cmvzWCDj42-236mN0AFAZFY_Lw0tikvBY5m_rU1lsYB7fe_Fgww8AeU9YqH_h54C3Ub-6jMFTcLO1WZCl3eE8FQuz20eB7XT4cKEtTiT1gY9EyNDp9ZTayxuH25BXZmvVkk6fdxYIiltTijAR3R6Qi7rJ0-aRp43rCpXT8A8GAIhVIst1toi_PKkkjS0nkHyuzcWgbEXAJs8iU3lxYTvSsberx1U8dh_dazaw_4RUsJIaj70qJ9N5yf7DHgQxyU_JiTgtbxyJ-vH6uKWrwArzGPp4doYUEdRHBsnekS_23NlJ1PI3gBQaEomv71JnH9uUtf5SEl63qw&h=6fiLgMQstXHbSKMCSRc8I9WH4Kd3-v7Ub1T5CNAgMWI'
+DEBUG: cli.azure.cli.core.sdk.policies: Request method: 'GET'
+DEBUG: cli.azure.cli.core.sdk.policies: Request headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-client-request-id': 'ec485150-f0de-11ee-8fde-76c47aa90249'
+DEBUG: cli.azure.cli.core.sdk.policies:     'CommandName': 'vmss scale'
+DEBUG: cli.azure.cli.core.sdk.policies:     'ParameterSetName': '--name --new-capacity --resource-group --debug'
+DEBUG: cli.azure.cli.core.sdk.policies:     'User-Agent': 'AZURECLI/2.58.0 (HOMEBREW) azsdk-python-core/1.28.0 Python/3.11.8 (macOS-14.4.1-arm64-arm-64bit)'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Authorization': '*****'
+DEBUG: cli.azure.cli.core.sdk.policies: Request body:
+DEBUG: cli.azure.cli.core.sdk.policies: This request has no body
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Compute/locations/TaiwanNorth/operations/56c08fb6-8501-45e2-9901-1053c09a3379?p=fc5b00a6-f760-4a0f-bf0b-7d5a2cd17907&api-version=2023-09-01&t=638476518785280398&c=MIIHADCCBeigAwIBAgITHgPpxUXboRMa1MKXpgAAA-nFRTANBgkqhkiG9w0BAQsFADBEMRMwEQYKCZImiZPyLGQBGRYDR0JMMRMwEQYKCZImiZPyLGQBGRYDQU1FMRgwFgYDVQQDEw9BTUUgSW5mcmEgQ0EgMDYwHhcNMjQwMTMxMDEyODE0WhcNMjUwMTI1MDEyODE0WjBAMT4wPAYDVQQDEzVhc3luY29wZXJhdGlvbnNpZ25pbmdjZXJ0aWZpY2F0ZS5tYW5hZ2VtZW50LmF6dXJlLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALigL_YnYGZkISCK9BFT_dzpf963u9bRlY_IhMLl8TQ-WhRb_jA3SHowq9D2t_7jJQKGI6GCCp7rr_bZzTa8pQN0C79lTnY73uIO4_vOTLEbO-r_WF4dIaOg1uhvkHUiwSieW1h1jjj7k_SIuMHohy7tAM8iZ7-ZfFZtnQlOn2e3i4JeBaiEwNF6m94GOMe29LMbaearVgY8Q9dpoqHRILM6oc_lOriZ7rsNAjKOxUZcp1Fo9palZ-3PsJ20ivSPfnC4uawbHqM6z14aGUgr9gJQWitq-3CYzqxU1A3majqauDuR74sxRgfJpBe8xHH2ykGfx9eRrJVbo9gtcbtMplUCAwEAAaOCA-0wggPpMCcGCSsGAQQBgjcVCgQaMBgwCgYIKwYBBQUHAwEwCgYIKwYBBQUHAwIwPQYJKwYBBAGCNxUHBDAwLgYmKwYBBAGCNxUIhpDjDYTVtHiE8Ys-hZvdFs6dEoFggvX2K4Py0SACAWQCAQowggHLBggrBgEFBQcBAQSCAb0wggG5MGMGCCsGAQUFBzAChldodHRwOi8vY3JsLm1pY3Jvc29mdC5jb20vcGtpaW5mcmEvQ2VydHMvQkwyUEtJSU5UQ0EwMi5BTUUuR0JMX0FNRSUyMEluZnJhJTIwQ0ElMjAwNi5jcnQwUwYIKwYBBQUHMAKGR2h0dHA6Ly9jcmwxLmFtZS5nYmwvYWlhL0JMMlBLSUlOVENBMDIuQU1FLkdCTF9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3J0MFMGCCsGAQUFBzAChkdodHRwOi8vY3JsMi5hbWUuZ2JsL2FpYS9CTDJQS0lJTlRDQTAyLkFNRS5HQkxfQU1FJTIwSW5mcmElMjBDQSUyMDA2LmNydDBTBggrBgEFBQcwAoZHaHR0cDovL2NybDMuYW1lLmdibC9haWEvQkwyUEtJSU5UQ0EwMi5BTUUuR0JMX0FNRSUyMEluZnJhJTIwQ0ElMjAwNi5jcnQwUwYIKwYBBQUHMAKGR2h0dHA6Ly9jcmw0LmFtZS5nYmwvYWlhL0JMMlBLSUlOVENBMDIuQU1FLkdCTF9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3J0MB0GA1UdDgQWBBQPt2y76WhKhKfsmhaKSl6_-ABVUzAOBgNVHQ8BAf8EBAMCBaAwggEmBgNVHR8EggEdMIIBGTCCARWgggERoIIBDYY_aHR0cDovL2NybC5taWNyb3NvZnQuY29tL3BraWluZnJhL0NSTC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMS5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMi5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMy5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsNC5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JsMBcGA1UdIAQQMA4wDAYKKwYBBAGCN3sBATAfBgNVHSMEGDAWgBTxRmjG8cPwKy19i2rhsvm-NfzRQTAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDQYJKoZIhvcNAQELBQADggEBAKfiXIDVAa163uWLQJ_KFJsJINDdJsPSYCj10C9FzlRIDm8NLFTcqHUht2yzNYw9sA0XiYBlshas0NHr_NjnK0vPf1AFoIyNw9OdZs75NKY4kH247gfF_AS1HoQheB_afmz95Kg4gW5BkeRfe92S6InmCXmdMN7m4vzQEeTuhvRoGh2iXCWxstqVMx28FAQxHa3Prn8dFtxou7RnYaFULimejLV78X4z6uHJwh1OmW9uhn3qd1LDrR7JAljm4WMGkEGOhjJfM5_k-EZGiorRgudd5Jd9zM4oxFvG6mwyZy5dGBJRbH-yBernSv2B_wejt8UxccrqN-zuk7CfQWoYGh0&s=TzwRQ1qUKr0cmvzWCDj42-236mN0AFAZFY_Lw0tikvBY5m_rU1lsYB7fe_Fgww8AeU9YqH_h54C3Ub-6jMFTcLO1WZCl3eE8FQuz20eB7XT4cKEtTiT1gY9EyNDp9ZTayxuH25BXZmvVkk6fdxYIiltTijAR3R6Qi7rJ0-aRp43rCpXT8A8GAIhVIst1toi_PKkkjS0nkHyuzcWgbEXAJs8iU3lxYTvSsberx1U8dh_dazaw_4RUsJIaj70qJ9N5yf7DHgQxyU_JiTgtbxyJ-vH6uKWrwArzGPp4doYUEdRHBsnekS_23NlJ1PI3gBQaEomv71JnH9uUtf5SEl63qw&h=6fiLgMQstXHbSKMCSRc8I9WH4Kd3-v7Ub1T5CNAgMWI HTTP/1.1" 200 134
+DEBUG: cli.azure.cli.core.sdk.policies: Response status: 200
+DEBUG: cli.azure.cli.core.sdk.policies: Response headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Cache-Control': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Pragma': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '134'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json; charset=utf-8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Expires': '-1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-resource': 'Microsoft.Compute/GetOperationResource;43,Microsoft.Compute/GetOperationSubscriptionMaximum;14996'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-request-id': '044f1a65-4b6e-4082-976b-8e917a783475'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-subscription-reads': '11999'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': 'e6d50203-c6b3-4191-9327-b0219dcf0ed1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-routing-request-id': 'JAPANWEST:20240402T105149Z:e6d50203-c6b3-4191-9327-b0219dcf0ed1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Content-Type-Options': 'nosniff'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Cache': 'CONFIG_NOCACHE'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-MSEdge-Ref': 'Ref A: D4C4D7C20464457784B883E6EF8CE93E Ref B: TYO201100113009 Ref C: 2024-04-02T10:51:48Z'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Date': 'Tue, 02 Apr 2024 10:51:48 GMT'
+DEBUG: cli.azure.cli.core.sdk.policies: Response content:
+DEBUG: cli.azure.cli.core.sdk.policies: {
+  "startTime": "2024-04-02T10:51:18.1392101+00:00",
+  "status": "InProgress",
+  "name": "56c08fb6-8501-45e2-9901-1053c09a3379"
+}
+DEBUG: cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Compute/locations/TaiwanNorth/operations/56c08fb6-8501-45e2-9901-1053c09a3379?p=fc5b00a6-f760-4a0f-bf0b-7d5a2cd17907&api-version=2023-09-01&t=638476518785280398&c=MIIHADCCBeigAwIBAgITHgPpxUXboRMa1MKXpgAAA-nFRTANBgkqhkiG9w0BAQsFADBEMRMwEQYKCZImiZPyLGQBGRYDR0JMMRMwEQYKCZImiZPyLGQBGRYDQU1FMRgwFgYDVQQDEw9BTUUgSW5mcmEgQ0EgMDYwHhcNMjQwMTMxMDEyODE0WhcNMjUwMTI1MDEyODE0WjBAMT4wPAYDVQQDEzVhc3luY29wZXJhdGlvbnNpZ25pbmdjZXJ0aWZpY2F0ZS5tYW5hZ2VtZW50LmF6dXJlLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALigL_YnYGZkISCK9BFT_dzpf963u9bRlY_IhMLl8TQ-WhRb_jA3SHowq9D2t_7jJQKGI6GCCp7rr_bZzTa8pQN0C79lTnY73uIO4_vOTLEbO-r_WF4dIaOg1uhvkHUiwSieW1h1jjj7k_SIuMHohy7tAM8iZ7-ZfFZtnQlOn2e3i4JeBaiEwNF6m94GOMe29LMbaearVgY8Q9dpoqHRILM6oc_lOriZ7rsNAjKOxUZcp1Fo9palZ-3PsJ20ivSPfnC4uawbHqM6z14aGUgr9gJQWitq-3CYzqxU1A3majqauDuR74sxRgfJpBe8xHH2ykGfx9eRrJVbo9gtcbtMplUCAwEAAaOCA-0wggPpMCcGCSsGAQQBgjcVCgQaMBgwCgYIKwYBBQUHAwEwCgYIKwYBBQUHAwIwPQYJKwYBBAGCNxUHBDAwLgYmKwYBBAGCNxUIhpDjDYTVtHiE8Ys-hZvdFs6dEoFggvX2K4Py0SACAWQCAQowggHLBggrBgEFBQcBAQSCAb0wggG5MGMGCCsGAQUFBzAChldodHRwOi8vY3JsLm1pY3Jvc29mdC5jb20vcGtpaW5mcmEvQ2VydHMvQkwyUEtJSU5UQ0EwMi5BTUUuR0JMX0FNRSUyMEluZnJhJTIwQ0ElMjAwNi5jcnQwUwYIKwYBBQUHMAKGR2h0dHA6Ly9jcmwxLmFtZS5nYmwvYWlhL0JMMlBLSUlOVENBMDIuQU1FLkdCTF9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3J0MFMGCCsGAQUFBzAChkdodHRwOi8vY3JsMi5hbWUuZ2JsL2FpYS9CTDJQS0lJTlRDQTAyLkFNRS5HQkxfQU1FJTIwSW5mcmElMjBDQSUyMDA2LmNydDBTBggrBgEFBQcwAoZHaHR0cDovL2NybDMuYW1lLmdibC9haWEvQkwyUEtJSU5UQ0EwMi5BTUUuR0JMX0FNRSUyMEluZnJhJTIwQ0ElMjAwNi5jcnQwUwYIKwYBBQUHMAKGR2h0dHA6Ly9jcmw0LmFtZS5nYmwvYWlhL0JMMlBLSUlOVENBMDIuQU1FLkdCTF9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3J0MB0GA1UdDgQWBBQPt2y76WhKhKfsmhaKSl6_-ABVUzAOBgNVHQ8BAf8EBAMCBaAwggEmBgNVHR8EggEdMIIBGTCCARWgggERoIIBDYY_aHR0cDovL2NybC5taWNyb3NvZnQuY29tL3BraWluZnJhL0NSTC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMS5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMi5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMy5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsNC5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JsMBcGA1UdIAQQMA4wDAYKKwYBBAGCN3sBATAfBgNVHSMEGDAWgBTxRmjG8cPwKy19i2rhsvm-NfzRQTAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDQYJKoZIhvcNAQELBQADggEBAKfiXIDVAa163uWLQJ_KFJsJINDdJsPSYCj10C9FzlRIDm8NLFTcqHUht2yzNYw9sA0XiYBlshas0NHr_NjnK0vPf1AFoIyNw9OdZs75NKY4kH247gfF_AS1HoQheB_afmz95Kg4gW5BkeRfe92S6InmCXmdMN7m4vzQEeTuhvRoGh2iXCWxstqVMx28FAQxHa3Prn8dFtxou7RnYaFULimejLV78X4z6uHJwh1OmW9uhn3qd1LDrR7JAljm4WMGkEGOhjJfM5_k-EZGiorRgudd5Jd9zM4oxFvG6mwyZy5dGBJRbH-yBernSv2B_wejt8UxccrqN-zuk7CfQWoYGh0&s=TzwRQ1qUKr0cmvzWCDj42-236mN0AFAZFY_Lw0tikvBY5m_rU1lsYB7fe_Fgww8AeU9YqH_h54C3Ub-6jMFTcLO1WZCl3eE8FQuz20eB7XT4cKEtTiT1gY9EyNDp9ZTayxuH25BXZmvVkk6fdxYIiltTijAR3R6Qi7rJ0-aRp43rCpXT8A8GAIhVIst1toi_PKkkjS0nkHyuzcWgbEXAJs8iU3lxYTvSsberx1U8dh_dazaw_4RUsJIaj70qJ9N5yf7DHgQxyU_JiTgtbxyJ-vH6uKWrwArzGPp4doYUEdRHBsnekS_23NlJ1PI3gBQaEomv71JnH9uUtf5SEl63qw&h=6fiLgMQstXHbSKMCSRc8I9WH4Kd3-v7Ub1T5CNAgMWI'
+DEBUG: cli.azure.cli.core.sdk.policies: Request method: 'GET'
+DEBUG: cli.azure.cli.core.sdk.policies: Request headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-client-request-id': 'ec485150-f0de-11ee-8fde-76c47aa90249'
+DEBUG: cli.azure.cli.core.sdk.policies:     'CommandName': 'vmss scale'
+DEBUG: cli.azure.cli.core.sdk.policies:     'ParameterSetName': '--name --new-capacity --resource-group --debug'
+DEBUG: cli.azure.cli.core.sdk.policies:     'User-Agent': 'AZURECLI/2.58.0 (HOMEBREW) azsdk-python-core/1.28.0 Python/3.11.8 (macOS-14.4.1-arm64-arm-64bit)'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Authorization': '*****'
+DEBUG: cli.azure.cli.core.sdk.policies: Request body:
+DEBUG: cli.azure.cli.core.sdk.policies: This request has no body
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Compute/locations/TaiwanNorth/operations/56c08fb6-8501-45e2-9901-1053c09a3379?p=fc5b00a6-f760-4a0f-bf0b-7d5a2cd17907&api-version=2023-09-01&t=638476518785280398&c=MIIHADCCBeigAwIBAgITHgPpxUXboRMa1MKXpgAAA-nFRTANBgkqhkiG9w0BAQsFADBEMRMwEQYKCZImiZPyLGQBGRYDR0JMMRMwEQYKCZImiZPyLGQBGRYDQU1FMRgwFgYDVQQDEw9BTUUgSW5mcmEgQ0EgMDYwHhcNMjQwMTMxMDEyODE0WhcNMjUwMTI1MDEyODE0WjBAMT4wPAYDVQQDEzVhc3luY29wZXJhdGlvbnNpZ25pbmdjZXJ0aWZpY2F0ZS5tYW5hZ2VtZW50LmF6dXJlLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALigL_YnYGZkISCK9BFT_dzpf963u9bRlY_IhMLl8TQ-WhRb_jA3SHowq9D2t_7jJQKGI6GCCp7rr_bZzTa8pQN0C79lTnY73uIO4_vOTLEbO-r_WF4dIaOg1uhvkHUiwSieW1h1jjj7k_SIuMHohy7tAM8iZ7-ZfFZtnQlOn2e3i4JeBaiEwNF6m94GOMe29LMbaearVgY8Q9dpoqHRILM6oc_lOriZ7rsNAjKOxUZcp1Fo9palZ-3PsJ20ivSPfnC4uawbHqM6z14aGUgr9gJQWitq-3CYzqxU1A3majqauDuR74sxRgfJpBe8xHH2ykGfx9eRrJVbo9gtcbtMplUCAwEAAaOCA-0wggPpMCcGCSsGAQQBgjcVCgQaMBgwCgYIKwYBBQUHAwEwCgYIKwYBBQUHAwIwPQYJKwYBBAGCNxUHBDAwLgYmKwYBBAGCNxUIhpDjDYTVtHiE8Ys-hZvdFs6dEoFggvX2K4Py0SACAWQCAQowggHLBggrBgEFBQcBAQSCAb0wggG5MGMGCCsGAQUFBzAChldodHRwOi8vY3JsLm1pY3Jvc29mdC5jb20vcGtpaW5mcmEvQ2VydHMvQkwyUEtJSU5UQ0EwMi5BTUUuR0JMX0FNRSUyMEluZnJhJTIwQ0ElMjAwNi5jcnQwUwYIKwYBBQUHMAKGR2h0dHA6Ly9jcmwxLmFtZS5nYmwvYWlhL0JMMlBLSUlOVENBMDIuQU1FLkdCTF9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3J0MFMGCCsGAQUFBzAChkdodHRwOi8vY3JsMi5hbWUuZ2JsL2FpYS9CTDJQS0lJTlRDQTAyLkFNRS5HQkxfQU1FJTIwSW5mcmElMjBDQSUyMDA2LmNydDBTBggrBgEFBQcwAoZHaHR0cDovL2NybDMuYW1lLmdibC9haWEvQkwyUEtJSU5UQ0EwMi5BTUUuR0JMX0FNRSUyMEluZnJhJTIwQ0ElMjAwNi5jcnQwUwYIKwYBBQUHMAKGR2h0dHA6Ly9jcmw0LmFtZS5nYmwvYWlhL0JMMlBLSUlOVENBMDIuQU1FLkdCTF9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3J0MB0GA1UdDgQWBBQPt2y76WhKhKfsmhaKSl6_-ABVUzAOBgNVHQ8BAf8EBAMCBaAwggEmBgNVHR8EggEdMIIBGTCCARWgggERoIIBDYY_aHR0cDovL2NybC5taWNyb3NvZnQuY29tL3BraWluZnJhL0NSTC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMS5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMi5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsMy5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JshjFodHRwOi8vY3JsNC5hbWUuZ2JsL2NybC9BTUUlMjBJbmZyYSUyMENBJTIwMDYuY3JsMBcGA1UdIAQQMA4wDAYKKwYBBAGCN3sBATAfBgNVHSMEGDAWgBTxRmjG8cPwKy19i2rhsvm-NfzRQTAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDQYJKoZIhvcNAQELBQADggEBAKfiXIDVAa163uWLQJ_KFJsJINDdJsPSYCj10C9FzlRIDm8NLFTcqHUht2yzNYw9sA0XiYBlshas0NHr_NjnK0vPf1AFoIyNw9OdZs75NKY4kH247gfF_AS1HoQheB_afmz95Kg4gW5BkeRfe92S6InmCXmdMN7m4vzQEeTuhvRoGh2iXCWxstqVMx28FAQxHa3Prn8dFtxou7RnYaFULimejLV78X4z6uHJwh1OmW9uhn3qd1LDrR7JAljm4WMGkEGOhjJfM5_k-EZGiorRgudd5Jd9zM4oxFvG6mwyZy5dGBJRbH-yBernSv2B_wejt8UxccrqN-zuk7CfQWoYGh0&s=TzwRQ1qUKr0cmvzWCDj42-236mN0AFAZFY_Lw0tikvBY5m_rU1lsYB7fe_Fgww8AeU9YqH_h54C3Ub-6jMFTcLO1WZCl3eE8FQuz20eB7XT4cKEtTiT1gY9EyNDp9ZTayxuH25BXZmvVkk6fdxYIiltTijAR3R6Qi7rJ0-aRp43rCpXT8A8GAIhVIst1toi_PKkkjS0nkHyuzcWgbEXAJs8iU3lxYTvSsberx1U8dh_dazaw_4RUsJIaj70qJ9N5yf7DHgQxyU_JiTgtbxyJ-vH6uKWrwArzGPp4doYUEdRHBsnekS_23NlJ1PI3gBQaEomv71JnH9uUtf5SEl63qw&h=6fiLgMQstXHbSKMCSRc8I9WH4Kd3-v7Ub1T5CNAgMWI HTTP/1.1" 200 184
+DEBUG: cli.azure.cli.core.sdk.policies: Response status: 200
+DEBUG: cli.azure.cli.core.sdk.policies: Response headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Cache-Control': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Pragma': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '184'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json; charset=utf-8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Expires': '-1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-resource': 'Microsoft.Compute/GetOperationResource;44,Microsoft.Compute/GetOperationSubscriptionMaximum;14999'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-request-id': 'ae32ab11-fc3d-4c26-bd24-267edfc4481d'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-subscription-reads': '11996'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': 'ba3d3af7-7b29-4394-8e0b-cda39d55bff4'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-routing-request-id': 'JAPANWEST:20240402T105219Z:ba3d3af7-7b29-4394-8e0b-cda39d55bff4'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Content-Type-Options': 'nosniff'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Cache': 'CONFIG_NOCACHE'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-MSEdge-Ref': 'Ref A: 2C0EAD5D094642C792D840E763969CFF Ref B: TYO201100113009 Ref C: 2024-04-02T10:52:19Z'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Date': 'Tue, 02 Apr 2024 10:52:19 GMT'
+DEBUG: cli.azure.cli.core.sdk.policies: Response content:
+DEBUG: cli.azure.cli.core.sdk.policies: {
+  "startTime": "2024-04-02T10:51:18.1392101+00:00",
+  "endTime": "2024-04-02T10:51:56.1701515+00:00",
+  "status": "Succeeded",
+  "name": "56c08fb6-8501-45e2-9901-1053c09a3379"
+}
+DEBUG: cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Compute/virtualMachineScaleSets/MyVmss?api-version=2023-09-01'
+DEBUG: cli.azure.cli.core.sdk.policies: Request method: 'GET'
+DEBUG: cli.azure.cli.core.sdk.policies: Request headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-client-request-id': 'ec485150-f0de-11ee-8fde-76c47aa90249'
+DEBUG: cli.azure.cli.core.sdk.policies:     'CommandName': 'vmss scale'
+DEBUG: cli.azure.cli.core.sdk.policies:     'ParameterSetName': '--name --new-capacity --resource-group --debug'
+DEBUG: cli.azure.cli.core.sdk.policies:     'User-Agent': 'AZURECLI/2.58.0 (HOMEBREW) azsdk-python-core/1.28.0 Python/3.11.8 (macOS-14.4.1-arm64-arm-64bit)'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Authorization': '*****'
+DEBUG: cli.azure.cli.core.sdk.policies: Request body:
+DEBUG: cli.azure.cli.core.sdk.policies: This request has no body
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Compute/virtualMachineScaleSets/MyVmss?api-version=2023-09-01 HTTP/1.1" 200 3897
+DEBUG: cli.azure.cli.core.sdk.policies: Response status: 200
+DEBUG: cli.azure.cli.core.sdk.policies: Response headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Cache-Control': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Pragma': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '3897'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json; charset=utf-8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Expires': '-1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-resource': 'Microsoft.Compute/GetVMScaleSetSubscriptionMaximum;2397,Microsoft.Compute/GetVMScaleSetResource;33'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-request-id': '564650f5-820d-44fd-bf85-8c36fdae8a9f'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-subscription-reads': '11998'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': '608995c2-56bc-40e0-8600-ae6eb5520fa1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-routing-request-id': 'JAPANWEST:20240402T105219Z:608995c2-56bc-40e0-8600-ae6eb5520fa1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Content-Type-Options': 'nosniff'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Cache': 'CONFIG_NOCACHE'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-MSEdge-Ref': 'Ref A: 8D17A2405F1A4C8C9E1AD291C7798E2D Ref B: TYO201100113009 Ref C: 2024-04-02T10:52:19Z'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Date': 'Tue, 02 Apr 2024 10:52:19 GMT'
+DEBUG: cli.azure.cli.core.sdk.policies: Response content:
+DEBUG: cli.azure.cli.core.sdk.policies: {
+  "name": "MyVmss",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Compute/virtualMachineScaleSets/MyVmss",
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "location": "taiwannorth",
+  "tags": {},
+  "sku": {
+    "name": "Standard_DS1_v2",
+    "tier": "Standard",
+    "capacity": 2
+  },
+  "properties": {
+    "singlePlacementGroup": false,
+    "orchestrationMode": "Flexible",
+    "upgradePolicy": {
+      "mode": "Manual"
+    },
+    "virtualMachineProfile": {
+      "osProfile": {
+        "computerNamePrefix": "MyVmss",
+        "adminUsername": "pichuang",
+        "linuxConfiguration": {
+          "disablePasswordAuthentication": true,
+          "ssh": {
+            "publicKeys": [
+              {
+                "path": "/home/pichuang/.ssh/authorized_keys",
+                "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMuzPZLL/FvsTzzfwscmRMjGGwBkEQnIeqeQq6k7gBejKZVlFJ1lHxqxj/sNNuiLsQk+MLb9JHSsHN9V4y9hPnk1RTicoS019ZS6F+jhT37LcrAmmWkdszeFlIdgAYf26RpXEkwwW5Hb1i9xwV6pY3qZdlU4CgY2psv5CEABWM6UR1gcbXisnhr301YyBgy9AEit3vsTwZXTL3J1Ela8nf++nLYrbKQJHZrX3R/QFf89534VCG9aN50pIAIG3teP4UAdK62XZy+Cb/jNA2MbDvnnkJc0OQNho3nOAyErZVlIU/nuVoC32tGeL3paOCjCI6Sb+jBHijSY442gtITyEF"
+              }
+            ]
+          },
+          "provisionVMAgent": true,
+          "patchSettings": {
+            "patchMode": "ImageDefault",
+            "assessmentMode": "ImageDefault"
+          },
+          "enableVMAgentPlatformUpdates": false
+        },
+        "secrets": [],
+        "allowExtensionOperations": true,
+        "requireGuestProvisionSignal": true
+      },
+      "storageProfile": {
+        "osDisk": {
+          "osType": "Linux",
+          "createOption": "FromImage",
+          "caching": "ReadWrite",
+          "managedDisk": {
+            "storageAccountType": "Premium_LRS"
+          },
+          "deleteOption": "Delete",
+          "diskSizeGB": 40
+        },
+        "imageReference": {
+          "publisher": "Canonical",
+          "offer": "0001-com-ubuntu-server-jammy",
+          "sku": "22_04-lts-gen2",
+          "version": "latest"
+        },
+        "dataDisks": [
+          {
+            "lun": 0,
+            "createOption": "Empty",
+            "caching": "None",
+            "managedDisk": {
+              "storageAccountType": "Premium_LRS"
+            },
+            "deleteOption": "Delete",
+            "diskSizeGB": 2
+          }
+        ],
+        "diskControllerType": "SCSI"
+      },
+      "networkProfile": {"networkApiVersion":"2020-11-01","networkInterfaceConfigurations":[{"name":"myvmsfe6fNic","properties":{"primary":true,"disableTcpStateTracking":false,"enableIPForwarding":false,"auxiliaryMode":"None","auxiliarySku":"None","deleteOption":"Delete","ipConfigurations":[{"name":"myvmsfe6fIPConfig","properties":{"privateIPAddressVersion":"IPv4","subnet":{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/virtualNetworks/MyVmVNET/subnets/MyVmSubnet"},"applicationSecurityGroups":[],"loadBalancerBackendAddressPools":[{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/loadBalancers/MyVmssLB/backendAddressPools/MyVmssLBBEPool"}],"applicationGatewayBackendAddressPools":[]}}],"networkSecurityGroup":{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/networkSecurityGroups/MyVmssNSG"},"dnsSettings":{"dnsServers":[]}}}]},
+      "timeCreated": "2024-04-02T10:46:58.9897939+00:00"
+    },
+    "provisioningState": "Succeeded",
+    "uniqueId": "d886a3de-4c4d-43e2-bc1d-c1ff5bf374cd",
+    "platformFaultDomainCount": 1,
+    "constrainedMaximumCapacity": false,
+    "timeCreated": "2024-04-02T10:46:58.9897939+00:00"
+  }
+}
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnTransformResult [<function _resource_group_transform at 0x1051cc860>, <function _x509_from_base64_to_hex_transform at 0x1051cc900>]
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnFilterResult []
+DEBUG: cli.knack.cli: Event: Cli.SuccessfulExecute []
+DEBUG: cli.knack.cli: Event: Cli.PostExecute [<function AzCliLogging.deinit_cmd_metadata_logging at 0x10517ad40>]
+INFO: az_command_data_logger: exit code: 0
+INFO: cli.__main__: Command ran in 66.917 seconds (init: 0.145, invoke: 66.772)
+INFO: telemetry.main: Begin splitting cli events and extra events, total events: 1
+INFO: telemetry.client: Accumulated 0 events. Flush the clients.
+INFO: telemetry.main: Finish splitting cli events and extra events, cli events: 1
+INFO: telemetry.save: Save telemetry record of length 3755 in cache
+INFO: telemetry.main: Begin creating telemetry upload process.
+INFO: telemetry.process: Creating upload process: "/opt/homebrew/Cellar/azure-cli/2.58.0/libexec/bin/python /opt/homebrew/Cellar/azure-cli/2.58.0/libexec/lib/python3.11/site-packages/azure/cli/telemetry/__init__.py /Users/pichuang/.azure"
+INFO: telemetry.process: Return from creating process
+INFO: telemetry.main: Finish creating telemetry upload process.
+{
+  "additionalCapabilities": null,
+  "automaticRepairsPolicy": null,
+  "constrainedMaximumCapacity": false,
+  "doNotRunExtensionsOnOverprovisionedVMs": null,
+  "etag": null,
+  "extendedLocation": null,
+  "hostGroup": null,
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Compute/virtualMachineScaleSets/MyVmss",
+  "identity": null,
+  "location": "taiwannorth",
+  "name": "MyVmss",
+  "orchestrationMode": "Flexible",
+  "overprovision": null,
+  "plan": null,
+  "platformFaultDomainCount": 1,
+  "priorityMixPolicy": null,
+  "provisioningState": "Succeeded",
+  "proximityPlacementGroup": null,
+  "resiliencyPolicy": null,
+  "resourceGroup": "rg-anayltics",
+  "scaleInPolicy": null,
+  "singlePlacementGroup": false,
+  "sku": {
+    "capacity": 2,
+    "name": "Standard_DS1_v2",
+    "tier": "Standard"
+  },
+  "spotRestorePolicy": null,
+  "tags": {},
+  "timeCreated": "2024-04-02T10:46:58.989793+00:00",
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "uniqueId": "d886a3de-4c4d-43e2-bc1d-c1ff5bf374cd",
+  "upgradePolicy": {
+    "automaticOsUpgradePolicy": null,
+    "mode": "Manual",
+    "rollingUpgradePolicy": null
+  },
+  "virtualMachineProfile": {
+    "applicationProfile": null,
+    "billingProfile": null,
+    "capacityReservation": null,
+    "diagnosticsProfile": null,
+    "evictionPolicy": null,
+    "extensionProfile": null,
+    "hardwareProfile": null,
+    "licenseType": null,
+    "networkProfile": {
+      "healthProbe": null,
+      "networkApiVersion": "2020-11-01",
+      "networkInterfaceConfigurations": [
+        {
+          "auxiliaryMode": "None",
+          "auxiliarySku": "None",
+          "deleteOption": "Delete",
+          "disableTcpStateTracking": false,
+          "dnsSettings": {
+            "dnsServers": []
+          },
+          "enableAcceleratedNetworking": null,
+          "enableFpga": null,
+          "enableIpForwarding": false,
+          "ipConfigurations": [
+            {
+              "applicationGatewayBackendAddressPools": [],
+              "applicationSecurityGroups": [],
+              "loadBalancerBackendAddressPools": [
+                {
+                  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/loadBalancers/MyVmssLB/backendAddressPools/MyVmssLBBEPool",
+                  "resourceGroup": "rg-anayltics"
+                }
+              ],
+              "loadBalancerInboundNatPools": null,
+              "name": "myvmsfe6fIPConfig",
+              "primary": null,
+              "privateIpAddressVersion": "IPv4",
+              "publicIpAddressConfiguration": null,
+              "subnet": {
+                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/virtualNetworks/MyVmVNET/subnets/MyVmSubnet",
+                "resourceGroup": "rg-anayltics"
+              }
+            }
+          ],
+          "name": "myvmsfe6fNic",
+          "networkSecurityGroup": {
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/networkSecurityGroups/MyVmssNSG",
+            "resourceGroup": "rg-anayltics"
+          },
+          "primary": true
+        }
+      ]
+    },
+    "osProfile": {
+      "adminPassword": null,
+      "adminUsername": "pichuang",
+      "allowExtensionOperations": true,
+      "computerNamePrefix": "MyVmss",
+      "customData": null,
+      "linuxConfiguration": {
+        "disablePasswordAuthentication": true,
+        "enableVmAgentPlatformUpdates": false,
+        "patchSettings": {
+          "assessmentMode": "ImageDefault",
+          "automaticByPlatformSettings": null,
+          "patchMode": "ImageDefault"
+        },
+        "provisionVmAgent": true,
+        "ssh": {
+          "publicKeys": [
+            {
+              "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMuzPZLL/FvsTzzfwscmRMjGGwBkEQnIeqeQq6k7gBejKZVlFJ1lHxqxj/sNNuiLsQk+MLb9JHSsHN9V4y9hPnk1RTicoS019ZS6F+jhT37LcrAmmWkdszeFlIdgAYf26RpXEkwwW5Hb1i9xwV6pY3qZdlU4CgY2psv5CEABWM6UR1gcbXisnhr301YyBgy9AEit3vsTwZXTL3J1Ela8nf++nLYrbKQJHZrX3R/QFf89534VCG9aN50pIAIG3teP4UAdK62XZy+Cb/jNA2MbDvnnkJc0OQNho3nOAyErZVlIU/nuVoC32tGeL3paOCjCI6Sb+jBHijSY442gtITyEF",
+              "path": "/home/pichuang/.ssh/authorized_keys"
+            }
+          ]
+        }
+      },
+      "requireGuestProvisionSignal": true,
+      "secrets": [],
+      "windowsConfiguration": null
+    },
+    "priority": null,
+    "scheduledEventsProfile": null,
+    "securityPostureReference": null,
+    "securityProfile": null,
+    "serviceArtifactReference": null,
+    "storageProfile": {
+      "dataDisks": [
+        {
+          "caching": "None",
+          "createOption": "Empty",
+          "deleteOption": "Delete",
+          "diskIopsReadWrite": null,
+          "diskMBpsReadWrite": null,
+          "diskSizeGb": 2,
+          "lun": 0,
+          "managedDisk": {
+            "diskEncryptionSet": null,
+            "securityProfile": null,
+            "storageAccountType": "Premium_LRS"
+          },
+          "name": null,
+          "writeAcceleratorEnabled": null
+        }
+      ],
+      "diskControllerType": "SCSI",
+      "imageReference": {
+        "communityGalleryImageId": null,
+        "exactVersion": null,
+        "id": null,
+        "offer": "0001-com-ubuntu-server-jammy",
+        "publisher": "Canonical",
+        "sharedGalleryImageId": null,
+        "sku": "22_04-lts-gen2",
+        "version": "latest"
+      },
+      "osDisk": {
+        "caching": "ReadWrite",
+        "createOption": "FromImage",
+        "deleteOption": "Delete",
+        "diffDiskSettings": null,
+        "diskSizeGb": 40,
+        "image": null,
+        "managedDisk": {
+          "diskEncryptionSet": null,
+          "securityProfile": null,
+          "storageAccountType": "Premium_LRS"
+        },
+        "name": null,
+        "osType": "Linux",
+        "vhdContainers": null,
+        "writeAcceleratorEnabled": null
+      }
+    },
+    "timeCreated": "2024-04-02T10:46:58.989793+00:00",
+    "userData": null
+  },
+  "zoneBalance": null,
+  "zones": null
+}

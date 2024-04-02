@@ -1,0 +1,605 @@
+DEBUG: cli.knack.cli: Command arguments: ['vmss', 'create', '-n', 'MyVmss', '-g', 'rg-anayltics', '--image', 'Ubuntu2204', '--instance-count', '1', '--data-disk-sizes-gb', '2', '--os-disk-size-gb', '40', '--debug']
+DEBUG: cli.knack.cli: __init__ debug log:
+Cannot enable color.
+DEBUG: cli.knack.cli: Event: Cli.PreExecute []
+DEBUG: cli.knack.cli: Event: CommandParser.OnGlobalArgumentsCreate [<function CLILogging.on_global_arguments at 0x1034891c0>, <function OutputProducer.on_global_arguments at 0x103530360>, <function CLIQuery.on_global_arguments at 0x103561e40>]
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPreCommandTableCreate []
+DEBUG: cli.azure.cli.core: Modules found from index for 'vmss': ['azure.cli.command_modules.vm']
+DEBUG: cli.azure.cli.core: Loading command modules:
+DEBUG: cli.azure.cli.core: Name                  Load Time    Groups  Commands
+DEBUG: cli.azure.cli.core: vm                        2.721        60       241
+DEBUG: cli.azure.cli.core: Total (1)                 2.721        60       241
+DEBUG: cli.azure.cli.core: These extensions are not installed and will be skipped: ['azext_ai_examples', 'azext_next']
+DEBUG: cli.azure.cli.core: Loading extensions:
+DEBUG: cli.azure.cli.core: Name                  Load Time    Groups  Commands  Directory
+DEBUG: cli.azure.cli.core: Total (0)                 0.000         0         0
+DEBUG: cli.azure.cli.core: Loaded 60 groups, 241 commands.
+DEBUG: cli.azure.cli.core: Found a match in the command table.
+DEBUG: cli.azure.cli.core: Raw command  : vmss create
+DEBUG: cli.azure.cli.core: Command table: vmss create
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPreCommandTableTruncate [<function AzCliLogging.init_command_file_logging at 0x105382ac0>]
+DEBUG: cli.azure.cli.core.azlogging: metadata file logging enabled - writing logs to '/Users/pichuang/.azure/commands/2024-04-02.18-46-26.vmss_create.89240.log'.
+INFO: az_command_data_logger: command args: vmss create -n {} -g {} --image {} --instance-count {} --data-disk-sizes-gb {} --os-disk-size-gb {} --debug
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPreArgumentLoad [<function register_global_subscription_argument.<locals>.add_subscription_parameter at 0x1053d77e0>]
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPostArgumentLoad []
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPostCommandTableCreate [<function register_ids_argument.<locals>.add_ids_arguments at 0x1053d7880>, <function register_cache_arguments.<locals>.add_cache_arguments at 0x1053d79c0>]
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnCommandTableLoaded []
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPreParseArgs []
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnPostParseArgs [<function OutputProducer.handle_output_argument at 0x103530400>, <function CLIQuery.handle_query_parameter at 0x103561ee0>, <function register_ids_argument.<locals>.parse_ids_arguments at 0x1053d7920>]
+DEBUG: cli.azure.cli.core.commands.client_factory: Getting management service client client_type=ResourceManagementClient
+DEBUG: cli.azure.cli.core.auth.persistence: build_persistence: location='/Users/pichuang/.azure/msal_token_cache.json', encrypt=False
+DEBUG: cli.azure.cli.core.auth.binary_cache: load: /Users/pichuang/.azure/msal_http_cache.bin
+DEBUG: urllib3.util.retry: Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG: msal.authority: openid_config = {'token_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic'], 'jwks_uri': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/kerberos', 'tenant_region_scope': 'NA', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+DEBUG: msal.application: Broker enabled? None
+DEBUG: cli.azure.cli.core.auth.credential_adaptor: CredentialAdaptor.get_token: scopes=('https://management.core.windows.net//.default',), kwargs={}
+DEBUG: cli.azure.cli.core.auth.msal_authentication: UserCredential.get_token: scopes=('https://management.core.windows.net//.default',), claims=None, kwargs={}
+DEBUG: msal.application: Cache hit an AT
+DEBUG: msal.telemetry: Generate or reuse correlation_id: 5e904190-cc6e-44c1-8290-61c836840a82
+DEBUG: cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-anayltics?api-version=2022-09-01'
+DEBUG: cli.azure.cli.core.sdk.policies: Request method: 'GET'
+DEBUG: cli.azure.cli.core.sdk.policies: Request headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Accept': 'application/json'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-client-request-id': '3f955ea8-f0de-11ee-8030-76c47aa90249'
+DEBUG: cli.azure.cli.core.sdk.policies:     'CommandName': 'vmss create'
+DEBUG: cli.azure.cli.core.sdk.policies:     'ParameterSetName': '-n -g --image --instance-count --data-disk-sizes-gb --os-disk-size-gb --debug'
+DEBUG: cli.azure.cli.core.sdk.policies:     'User-Agent': 'AZURECLI/2.58.0 (HOMEBREW) azsdk-python-core/1.28.0 Python/3.11.8 (macOS-14.4.1-arm64-arm-64bit)'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Authorization': '*****'
+DEBUG: cli.azure.cli.core.sdk.policies: Request body:
+DEBUG: cli.azure.cli.core.sdk.policies: This request has no body
+DEBUG: urllib3.connectionpool: Starting new HTTPS connection (1): management.azure.com:443
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-anayltics?api-version=2022-09-01 HTTP/1.1" 200 226
+DEBUG: cli.azure.cli.core.sdk.policies: Response status: 200
+DEBUG: cli.azure.cli.core.sdk.policies: Response headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Cache-Control': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Pragma': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '226'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json; charset=utf-8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Expires': '-1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-subscription-reads': '11998'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-request-id': 'd22b3049-8111-4052-8a11-d38c424fcc45'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': 'd22b3049-8111-4052-8a11-d38c424fcc45'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-routing-request-id': 'JAPANWEST:20240402T104629Z:d22b3049-8111-4052-8a11-d38c424fcc45'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Content-Type-Options': 'nosniff'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Cache': 'CONFIG_NOCACHE'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-MSEdge-Ref': 'Ref A: 33C9D97DECB6428D9E103F25361227A8 Ref B: TYO201100116045 Ref C: 2024-04-02T10:46:29Z'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Date': 'Tue, 02 Apr 2024 10:46:29 GMT'
+DEBUG: cli.azure.cli.core.sdk.policies: Response content:
+DEBUG: cli.azure.cli.core.sdk.policies: {"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics","name":"rg-anayltics","type":"Microsoft.Resources/resourceGroups","location":"taiwannorth","properties":{"provisioningState":"Succeeded"}}
+DEBUG: cli.azure.cli.core.commands.validators: using location 'taiwannorth' from resource group 'rg-anayltics'
+DEBUG: urllib3.connectionpool: Starting new HTTPS connection (1): raw.githubusercontent.com:443
+DEBUG: urllib3.connectionpool: https://raw.githubusercontent.com:443 "GET /Azure/azure-rest-api-specs/main/arm-compute/quickstart-templates/aliases.json HTTP/1.1" 200 671
+DEBUG: cli.azure.cli.core.commands.client_factory: Getting management service client client_type=ComputeManagementClient
+DEBUG: urllib3.util.retry: Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG: msal.authority: openid_config = {'token_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic'], 'jwks_uri': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/kerberos', 'tenant_region_scope': 'NA', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+DEBUG: msal.application: Broker enabled? None
+DEBUG: cli.azure.cli.core.commands.client_factory: Getting management service client client_type=ComputeManagementClient
+DEBUG: urllib3.util.retry: Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG: msal.authority: openid_config = {'token_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic'], 'jwks_uri': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/kerberos', 'tenant_region_scope': 'NA', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+DEBUG: msal.application: Broker enabled? None
+DEBUG: cli.azure.cli.core.auth.credential_adaptor: CredentialAdaptor.get_token: scopes=('https://management.core.windows.net//.default',), kwargs={}
+DEBUG: cli.azure.cli.core.auth.msal_authentication: UserCredential.get_token: scopes=('https://management.core.windows.net//.default',), claims=None, kwargs={}
+DEBUG: msal.application: Cache hit an AT
+DEBUG: msal.telemetry: Generate or reuse correlation_id: 1dfdb4d5-d826-4ea1-99c5-74692e378e88
+DEBUG: cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Compute/locations/taiwannorth/publishers/Canonical/artifacttypes/vmimage/offers/0001-com-ubuntu-server-jammy/skus/22_04-lts-gen2/versions?$top=1&$orderby=name%20desc&api-version=2023-09-01'
+DEBUG: cli.azure.cli.core.sdk.policies: Request method: 'GET'
+DEBUG: cli.azure.cli.core.sdk.policies: Request headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Accept': 'application/json'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-client-request-id': '3f955ea8-f0de-11ee-8030-76c47aa90249'
+DEBUG: cli.azure.cli.core.sdk.policies:     'CommandName': 'vmss create'
+DEBUG: cli.azure.cli.core.sdk.policies:     'ParameterSetName': '-n -g --image --instance-count --data-disk-sizes-gb --os-disk-size-gb --debug'
+DEBUG: cli.azure.cli.core.sdk.policies:     'User-Agent': 'AZURECLI/2.58.0 (HOMEBREW) azsdk-python-core/1.28.0 Python/3.11.8 (macOS-14.4.1-arm64-arm-64bit)'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Authorization': '*****'
+DEBUG: cli.azure.cli.core.sdk.policies: Request body:
+DEBUG: cli.azure.cli.core.sdk.policies: This request has no body
+DEBUG: urllib3.connectionpool: Starting new HTTPS connection (1): management.azure.com:443
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Compute/locations/taiwannorth/publishers/Canonical/artifacttypes/vmimage/offers/0001-com-ubuntu-server-jammy/skus/22_04-lts-gen2/versions?$top=1&$orderby=name%20desc&api-version=2023-09-01 HTTP/1.1" 200 317
+DEBUG: cli.azure.cli.core.sdk.policies: Response status: 200
+DEBUG: cli.azure.cli.core.sdk.policies: Response headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Cache-Control': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Pragma': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '317'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json; charset=utf-8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Expires': '-1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-resource': 'Microsoft.Compute/ListVMImagesVersionsFromLocation3Min;15999,Microsoft.Compute/ListVMImagesVersionsFromLocation30Min;43994'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-served-by': 'cea8424e-abd9-430e-bc0d-c4e46df1c6f9_133397823529015793'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-request-id': 'b76cb7c7-a5b7-4d49-bc7e-d110692640f0'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-subscription-reads': '11999'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': 'bfc40a55-ef3d-4e3b-a4b5-5350d38e3a3f'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-routing-request-id': 'JAPANWEST:20240402T104630Z:bfc40a55-ef3d-4e3b-a4b5-5350d38e3a3f'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Content-Type-Options': 'nosniff'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Cache': 'CONFIG_NOCACHE'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-MSEdge-Ref': 'Ref A: 0448209ADAB443BBB4A748263B1688C7 Ref B: TYO201100116023 Ref C: 2024-04-02T10:46:29Z'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Date': 'Tue, 02 Apr 2024 10:46:29 GMT'
+DEBUG: cli.azure.cli.core.sdk.policies: Response content:
+DEBUG: cli.azure.cli.core.sdk.policies: [
+  {
+    "location": "TaiwanNorth",
+    "name": "22.04.202403280",
+    "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/TaiwanNorth/Publishers/Canonical/ArtifactTypes/VMImage/Offers/0001-com-ubuntu-server-jammy/Skus/22_04-lts-gen2/Versions/22.04.202403280"
+  }
+]
+DEBUG: cli.azure.cli.core.auth.credential_adaptor: CredentialAdaptor.get_token: scopes=('https://management.core.windows.net//.default',), kwargs={}
+DEBUG: cli.azure.cli.core.auth.msal_authentication: UserCredential.get_token: scopes=('https://management.core.windows.net//.default',), claims=None, kwargs={}
+DEBUG: msal.application: Cache hit an AT
+DEBUG: msal.telemetry: Generate or reuse correlation_id: 90c475e2-ca09-43ec-9dcc-3f9d12c79787
+DEBUG: cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Compute/locations/taiwannorth/publishers/Canonical/artifacttypes/vmimage/offers/0001-com-ubuntu-server-jammy/skus/22_04-lts-gen2/versions/22.04.202403280?api-version=2023-09-01'
+DEBUG: cli.azure.cli.core.sdk.policies: Request method: 'GET'
+DEBUG: cli.azure.cli.core.sdk.policies: Request headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Accept': 'application/json'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-client-request-id': '3f955ea8-f0de-11ee-8030-76c47aa90249'
+DEBUG: cli.azure.cli.core.sdk.policies:     'CommandName': 'vmss create'
+DEBUG: cli.azure.cli.core.sdk.policies:     'ParameterSetName': '-n -g --image --instance-count --data-disk-sizes-gb --os-disk-size-gb --debug'
+DEBUG: cli.azure.cli.core.sdk.policies:     'User-Agent': 'AZURECLI/2.58.0 (HOMEBREW) azsdk-python-core/1.28.0 Python/3.11.8 (macOS-14.4.1-arm64-arm-64bit)'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Authorization': '*****'
+DEBUG: cli.azure.cli.core.sdk.policies: Request body:
+DEBUG: cli.azure.cli.core.sdk.policies: This request has no body
+DEBUG: urllib3.connectionpool: Starting new HTTPS connection (1): management.azure.com:443
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Compute/locations/taiwannorth/publishers/Canonical/artifacttypes/vmimage/offers/0001-com-ubuntu-server-jammy/skus/22_04-lts-gen2/versions/22.04.202403280?api-version=2023-09-01 HTTP/1.1" 200 1168
+DEBUG: cli.azure.cli.core.sdk.policies: Response status: 200
+DEBUG: cli.azure.cli.core.sdk.policies: Response headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Cache-Control': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Pragma': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '1168'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json; charset=utf-8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Expires': '-1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-resource': 'Microsoft.Compute/GetVMImageFromLocation3Min;12999,Microsoft.Compute/GetVMImageFromLocation30Min;73995'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-served-by': 'cea8424e-abd9-430e-bc0d-c4e46df1c6f9_133397823529015793'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-request-id': '3d00aff6-bae5-46c5-9592-5b60cf3c7cbc'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-subscription-reads': '11999'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': '5479ab0e-0364-4ea0-8063-dc572d53612e'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-routing-request-id': 'JAPANWEST:20240402T104631Z:5479ab0e-0364-4ea0-8063-dc572d53612e'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Content-Type-Options': 'nosniff'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Cache': 'CONFIG_NOCACHE'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-MSEdge-Ref': 'Ref A: 8A9925ACC60047EB95A0E55D05BE7916 Ref B: TYO201100117011 Ref C: 2024-04-02T10:46:30Z'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Date': 'Tue, 02 Apr 2024 10:46:30 GMT'
+DEBUG: cli.azure.cli.core.sdk.policies: Response content:
+DEBUG: cli.azure.cli.core.sdk.policies: {
+  "properties": {
+    "hyperVGeneration": "V2",
+    "architecture": "x64",
+    "replicaType": "Managed",
+    "replicaCount": 10,
+    "disallowed": {
+      "vmDiskType": "Unmanaged"
+    },
+    "automaticOSUpgradeProperties": {
+      "automaticOSUpgradeSupported": false
+    },
+    "imageDeprecationStatus": {
+      "imageState": "Active"
+    },
+    "features": [
+      {
+        "name": "SecurityType",
+        "value": "TrustedLaunchSupported"
+      },
+      {
+        "name": "IsAcceleratedNetworkSupported",
+        "value": "True"
+      },
+      {
+        "name": "DiskControllerTypes",
+        "value": "SCSI, NVMe"
+      },
+      {
+        "name": "IsHibernateSupported",
+        "value": "True"
+      }
+    ],
+    "osDiskImage": {
+      "operatingSystem": "Linux",
+      "sizeInGb": 30
+    },
+    "dataDiskImages": []
+  },
+  "location": "TaiwanNorth",
+  "name": "22.04.202403280",
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/TaiwanNorth/Publishers/Canonical/ArtifactTypes/VMImage/Offers/0001-com-ubuntu-server-jammy/Skus/22_04-lts-gen2/Versions/22.04.202403280"
+}
+DEBUG: cli.azure.cli.command_modules.vm._validators: storage profile 'StorageProfile.ManagedPirImage'
+DEBUG: cli.azure.cli.command_modules.vm._validators: no subnet specified. Attempting to find an existing Vnet and subnet...
+DEBUG: urllib3.util.retry: Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG: msal.authority: openid_config = {'token_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic'], 'jwks_uri': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/kerberos', 'tenant_region_scope': 'NA', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+DEBUG: msal.application: Broker enabled? None
+DEBUG: cli.azure.cli.core.auth.credential_adaptor: CredentialAdaptor.get_token: scopes=('https://management.core.windows.net//.default',), kwargs={}
+DEBUG: cli.azure.cli.core.auth.msal_authentication: UserCredential.get_token: scopes=('https://management.core.windows.net//.default',), claims=None, kwargs={}
+DEBUG: msal.application: Cache hit an AT
+DEBUG: msal.telemetry: Generate or reuse correlation_id: 5b145bd4-2a22-479a-bf9e-22b4837dbce2
+DEBUG: cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/virtualNetworks?api-version=2022-01-01'
+DEBUG: cli.azure.cli.core.sdk.policies: Request method: 'GET'
+DEBUG: cli.azure.cli.core.sdk.policies: Request headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Accept': 'application/json'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-client-request-id': '3f955ea8-f0de-11ee-8030-76c47aa90249'
+DEBUG: cli.azure.cli.core.sdk.policies:     'CommandName': 'vmss create'
+DEBUG: cli.azure.cli.core.sdk.policies:     'ParameterSetName': '-n -g --image --instance-count --data-disk-sizes-gb --os-disk-size-gb --debug'
+DEBUG: cli.azure.cli.core.sdk.policies:     'User-Agent': 'AZURECLI/2.58.0 (HOMEBREW) azsdk-python-core/1.28.0 Python/3.11.8 (macOS-14.4.1-arm64-arm-64bit)'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Authorization': '*****'
+DEBUG: cli.azure.cli.core.sdk.policies: Request body:
+DEBUG: cli.azure.cli.core.sdk.policies: This request has no body
+DEBUG: urllib3.connectionpool: Starting new HTTPS connection (1): management.azure.com:443
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/virtualNetworks?api-version=2022-01-01 HTTP/1.1" 200 1693
+DEBUG: cli.azure.cli.core.sdk.policies: Response status: 200
+DEBUG: cli.azure.cli.core.sdk.policies: Response headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Cache-Control': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Pragma': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '1693'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json; charset=utf-8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Expires': '-1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-request-id': '1492fd5b-2ade-4cb1-9246-e3ede5b29fd2'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': '290500b2-b8c7-47e9-90e6-303579996af7'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-arm-service-request-id': '06aa02fc-6f82-42d5-88a9-d0d3728d1058'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-subscription-reads': '11999'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-routing-request-id': 'JAPANWEST:20240402T104631Z:290500b2-b8c7-47e9-90e6-303579996af7'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Content-Type-Options': 'nosniff'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Cache': 'CONFIG_NOCACHE'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-MSEdge-Ref': 'Ref A: E084EB26F9F24DAC8F919FA8B037133A Ref B: TYO201100117011 Ref C: 2024-04-02T10:46:31Z'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Date': 'Tue, 02 Apr 2024 10:46:30 GMT'
+DEBUG: cli.azure.cli.core.sdk.policies: Response content:
+DEBUG: cli.azure.cli.core.sdk.policies: {
+  "value": [
+    {
+      "name": "MyVmVNET",
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/virtualNetworks/MyVmVNET",
+      "etag": "W/\"f9374e47-3f54-4afc-82ca-b5f09ceb8a8f\"",
+      "type": "Microsoft.Network/virtualNetworks",
+      "location": "taiwannorth",
+      "tags": {},
+      "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "eb4d682e-593a-41ea-9b1e-9a1e54f06d3e",
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.0.0.0/16"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "MyVmSubnet",
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/virtualNetworks/MyVmVNET/subnets/MyVmSubnet",
+            "etag": "W/\"f9374e47-3f54-4afc-82ca-b5f09ceb8a8f\"",
+            "properties": {
+              "provisioningState": "Succeeded",
+              "addressPrefix": "10.0.0.0/24",
+              "ipConfigurations": [
+                {
+                  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/networkInterfaces/MyVmVMNic/ipConfigurations/ipconfigMyVm"
+                }
+              ],
+              "delegations": [],
+              "privateEndpointNetworkPolicies": "Disabled",
+              "privateLinkServiceNetworkPolicies": "Enabled"
+            },
+            "type": "Microsoft.Network/virtualNetworks/subnets"
+          }
+        ],
+        "virtualNetworkPeerings": [],
+        "enableDdosProtection": false
+      }
+    }
+  ]
+}
+DEBUG: cli.azure.cli.command_modules.vm._validators: existing vnet 'MyVmVNET' and subnet 'MyVmSubnet' found
+DEBUG: cli.azure.cli.command_modules.vm._validators: new load balancer will be created
+DEBUG: cli.azure.cli.command_modules.vm._validators: new public IP address will be created
+INFO: cli.azure.cli.command_modules.vm._validators: Use existing SSH public key file: /Users/pichuang/.ssh/id_rsa.pub
+DEBUG: cli.azure.cli.core.commands.client_factory: Getting management service client client_type=ResourceManagementClient
+DEBUG: urllib3.util.retry: Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG: msal.authority: openid_config = {'token_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic'], 'jwks_uri': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/60c041af-d3e5-4152-a034-e8e449c34ab4/kerberos', 'tenant_region_scope': 'NA', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+DEBUG: msal.application: Broker enabled? None
+DEBUG: cli.azure.cli.core.auth.credential_adaptor: CredentialAdaptor.get_token: scopes=('https://management.core.windows.net//.default',), kwargs={}
+DEBUG: cli.azure.cli.core.auth.msal_authentication: UserCredential.get_token: scopes=('https://management.core.windows.net//.default',), claims=None, kwargs={}
+DEBUG: msal.application: Cache hit an AT
+DEBUG: msal.telemetry: Generate or reuse correlation_id: 48f3719f-62dc-445f-9b05-96cd203c2396
+DEBUG: cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-anayltics/providers/Microsoft.Resources/deployments/vmss_deploy_x22ien9liF6vO6cmON5DLUGgivFRTISs?api-version=2022-09-01'
+DEBUG: cli.azure.cli.core.sdk.policies: Request method: 'PUT'
+DEBUG: cli.azure.cli.core.sdk.policies: Request headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '4985'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Accept': 'application/json'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-client-request-id': '3f955ea8-f0de-11ee-8030-76c47aa90249'
+DEBUG: cli.azure.cli.core.sdk.policies:     'CommandName': 'vmss create'
+DEBUG: cli.azure.cli.core.sdk.policies:     'ParameterSetName': '-n -g --image --instance-count --data-disk-sizes-gb --os-disk-size-gb --debug'
+DEBUG: cli.azure.cli.core.sdk.policies:     'User-Agent': 'AZURECLI/2.58.0 (HOMEBREW) azsdk-python-core/1.28.0 Python/3.11.8 (macOS-14.4.1-arm64-arm-64bit)'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Authorization': '*****'
+DEBUG: cli.azure.cli.core.sdk.policies: Request body:
+DEBUG: cli.azure.cli.core.sdk.policies: {"properties": {"template": {"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#", "contentVersion": "1.0.0.0", "parameters": {}, "variables": {}, "resources": [{"apiVersion": "2022-01-01", "type": "Microsoft.Network/publicIPAddresses", "name": "MyVmssLBPublicIP", "location": "taiwannorth", "tags": {}, "dependsOn": [], "properties": {"publicIPAllocationMethod": "Static"}, "sku": {"name": "Standard"}}, {"type": "Microsoft.Network/loadBalancers", "name": "MyVmssLB", "location": "taiwannorth", "tags": {}, "apiVersion": "2022-01-01", "dependsOn": ["Microsoft.Network/publicIpAddresses/MyVmssLBPublicIP"], "properties": {"backendAddressPools": [{"name": "MyVmssLBBEPool"}], "frontendIPConfigurations": [{"name": "loadBalancerFrontEnd", "properties": {"publicIPAddress": {"id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/publicIPAddresses/MyVmssLBPublicIP"}}}], "loadBalancingRules": [{"name": "LBRule", "properties": {"frontendIPConfiguration": {"id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'MyVmssLB'), '/frontendIPConfigurations/', 'loadBalancerFrontEnd')]"}, "backendAddressPool": {"id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'MyVmssLB'), '/backendAddressPools/', 'MyVmssLBBEPool')]"}, "protocol": "tcp", "frontendPort": 80, "backendPort": 80, "enableFloatingIP": false, "idleTimeoutInMinutes": 5}}]}, "sku": {"name": "Standard"}}, {"type": "Microsoft.Network/networkSecurityGroups", "name": "MyVmssNSG", "apiVersion": "2015-06-15", "location": "taiwannorth", "tags": {}, "dependsOn": [], "properties": {"securityRules": [{"name": "default-allow-ssh", "properties": {"protocol": "Tcp", "sourcePortRange": "*", "destinationPortRange": "22", "sourceAddressPrefix": "*", "destinationAddressPrefix": "*", "access": "Allow", "priority": 1000, "direction": "Inbound"}}]}}, {"type": "Microsoft.Network/loadBalancers/inboundNatRules", "apiVersion": "2022-01-01", "name": "MyVmssLB/NatRule", "location": "taiwannorth", "properties": {"frontendIPConfiguration": {"id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'MyVmssLB'), '/frontendIPConfigurations/', 'loadBalancerFrontEnd')]"}, "backendAddressPool": {"id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'MyVmssLB'), '/backendAddressPools/', 'MyVmssLBBEPool')]"}, "backendPort": 22, "frontendPortRangeStart": "50000", "frontendPortRangeEnd": "50119", "protocol": "tcp", "idleTimeoutInMinutes": 5}, "dependsOn": ["[concat('Microsoft.Network/loadBalancers/', 'MyVmssLB')]"]}, {"type": "Microsoft.Compute/virtualMachineScaleSets", "name": "MyVmss", "location": "taiwannorth", "tags": {}, "apiVersion": "2023-09-01", "dependsOn": ["Microsoft.Network/loadBalancers/MyVmssLB", "Microsoft.Network/networkSecurityGroups/MyVmssNSG"], "properties": {"singlePlacementGroup": null, "platformFaultDomainCount": 1, "virtualMachineProfile": {"storageProfile": {"osDisk": {"createOption": "FromImage", "caching": "ReadWrite", "managedDisk": {"storageAccountType": null}, "diskSizeGB": 40}, "imageReference": {"publisher": "Canonical", "offer": "0001-com-ubuntu-server-jammy", "sku": "22_04-lts-gen2", "version": "latest"}, "dataDisks": [{"lun": 0, "managedDisk": {"storageAccountType": null}, "createOption": "empty", "diskSizeGB": 2}]}, "osProfile": {"computerNamePrefix": "MyVmss", "adminUsername": "pichuang", "linuxConfiguration": {"disablePasswordAuthentication": true, "ssh": {"publicKeys": [{"path": "/home/pichuang/.ssh/authorized_keys", "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMuzPZLL/FvsTzzfwscmRMjGGwBkEQnIeqeQq6k7gBejKZVlFJ1lHxqxj/sNNuiLsQk+MLb9JHSsHN9V4y9hPnk1RTicoS019ZS6F+jhT37LcrAmmWkdszeFlIdgAYf26RpXEkwwW5Hb1i9xwV6pY3qZdlU4CgY2psv5CEABWM6UR1gcbXisnhr301YyBgy9AEit3vsTwZXTL3J1Ela8nf++nLYrbKQJHZrX3R/QFf89534VCG9aN50pIAIG3teP4UAdK62XZy+Cb/jNA2MbDvnnkJc0OQNho3nOAyErZVlIU/nuVoC32tGeL3paOCjCI6Sb+jBHijSY442gtITyEF"}]}}}, "networkProfile": {"networkInterfaceConfigurations": [{"name": "myvmsfe6fNic", "properties": {"ipConfigurations": [{"name": "myvmsfe6fIPConfig", "properties": {"subnet": {"id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/virtualNetworks/MyVmVNET/subnets/MyVmSubnet"}, "loadBalancerBackendAddressPools": [{"id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/loadBalancers/MyVmssLB/backendAddressPools/MyVmssLBBEPool"}]}}], "networkSecurityGroup": {"id": "[resourceId('Microsoft.Network/networkSecurityGroups', 'MyVmssNSG')]"}, "primary": "true"}}], "networkApiVersion": "2020-11-01"}}, "orchestrationMode": "Flexible"}, "sku": {"name": "Standard_DS1_v2", "capacity": 1}}], "outputs": {"VMSS": {"type": "object", "value": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets', 'MyVmss'),providers('Microsoft.Compute', 'virtualMachineScaleSets').apiVersions[0])]"}}}, "parameters": {}, "mode": "incremental"}}
+DEBUG: urllib3.connectionpool: Starting new HTTPS connection (1): management.azure.com:443
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "PUT /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-anayltics/providers/Microsoft.Resources/deployments/vmss_deploy_x22ien9liF6vO6cmON5DLUGgivFRTISs?api-version=2022-09-01 HTTP/1.1" 201 2645
+DEBUG: cli.azure.cli.core.sdk.policies: Response status: 201
+DEBUG: cli.azure.cli.core.sdk.policies: Response headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Cache-Control': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Pragma': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '2645'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json; charset=utf-8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Expires': '-1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Azure-AsyncOperation': 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-anayltics/providers/Microsoft.Resources/deployments/vmss_deploy_x22ien9liF6vO6cmON5DLUGgivFRTISs/operationStatuses/08584895520891300889?api-version=2022-09-01'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-subscription-writes': '1198'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-request-id': '8d3b1774-c460-490b-9ae5-dde12ecff377'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': '8d3b1774-c460-490b-9ae5-dde12ecff377'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-routing-request-id': 'JAPANWEST:20240402T104638Z:8d3b1774-c460-490b-9ae5-dde12ecff377'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Content-Type-Options': 'nosniff'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Cache': 'CONFIG_NOCACHE'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-MSEdge-Ref': 'Ref A: CC3ACCD63A714915A2CEC8C56D90E748 Ref B: TYO201100113031 Ref C: 2024-04-02T10:46:31Z'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Date': 'Tue, 02 Apr 2024 10:46:38 GMT'
+DEBUG: cli.azure.cli.core.sdk.policies: Response content:
+DEBUG: cli.azure.cli.core.sdk.policies: {"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Resources/deployments/vmss_deploy_x22ien9liF6vO6cmON5DLUGgivFRTISs","name":"vmss_deploy_x22ien9liF6vO6cmON5DLUGgivFRTISs","type":"Microsoft.Resources/deployments","properties":{"templateHash":"4060609195553854020","parameters":{},"mode":"Incremental","provisioningState":"Accepted","timestamp":"2024-04-02T10:46:37.4160076Z","duration":"PT0.0001344S","correlationId":"8d3b1774-c460-490b-9ae5-dde12ecff377","providers":[{"namespace":"Microsoft.Network","resourceTypes":[{"resourceType":"publicIPAddresses","locations":["taiwannorth"]},{"resourceType":"loadBalancers","locations":["taiwannorth"]},{"resourceType":"networkSecurityGroups","locations":["taiwannorth"]},{"resourceType":"loadBalancers/inboundNatRules","locations":["taiwannorth"]}]},{"namespace":"Microsoft.Compute","resourceTypes":[{"resourceType":"virtualMachineScaleSets","locations":["taiwannorth"]}]}],"dependencies":[{"dependsOn":[{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/publicIPAddresses/MyVmssLBPublicIP","resourceType":"Microsoft.Network/publicIPAddresses","resourceName":"MyVmssLBPublicIP"}],"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/loadBalancers/MyVmssLB","resourceType":"Microsoft.Network/loadBalancers","resourceName":"MyVmssLB"},{"dependsOn":[{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/loadBalancers/MyVmssLB","resourceType":"Microsoft.Network/loadBalancers","resourceName":"MyVmssLB"}],"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/loadBalancers/MyVmssLB/inboundNatRules/NatRule","resourceType":"Microsoft.Network/loadBalancers/inboundNatRules","resourceName":"MyVmssLB/NatRule"},{"dependsOn":[{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/loadBalancers/MyVmssLB","resourceType":"Microsoft.Network/loadBalancers","resourceName":"MyVmssLB"},{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/networkSecurityGroups/MyVmssNSG","resourceType":"Microsoft.Network/networkSecurityGroups","resourceName":"MyVmssNSG"}],"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Compute/virtualMachineScaleSets/MyVmss","resourceType":"Microsoft.Compute/virtualMachineScaleSets","resourceName":"MyVmss"}]}}
+DEBUG: cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-anayltics/providers/Microsoft.Resources/deployments/vmss_deploy_x22ien9liF6vO6cmON5DLUGgivFRTISs/operationStatuses/08584895520891300889?api-version=2022-09-01'
+DEBUG: cli.azure.cli.core.sdk.policies: Request method: 'GET'
+DEBUG: cli.azure.cli.core.sdk.policies: Request headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-client-request-id': '3f955ea8-f0de-11ee-8030-76c47aa90249'
+DEBUG: cli.azure.cli.core.sdk.policies:     'CommandName': 'vmss create'
+DEBUG: cli.azure.cli.core.sdk.policies:     'ParameterSetName': '-n -g --image --instance-count --data-disk-sizes-gb --os-disk-size-gb --debug'
+DEBUG: cli.azure.cli.core.sdk.policies:     'User-Agent': 'AZURECLI/2.58.0 (HOMEBREW) azsdk-python-core/1.28.0 Python/3.11.8 (macOS-14.4.1-arm64-arm-64bit)'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Authorization': '*****'
+DEBUG: cli.azure.cli.core.sdk.policies: Request body:
+DEBUG: cli.azure.cli.core.sdk.policies: This request has no body
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-anayltics/providers/Microsoft.Resources/deployments/vmss_deploy_x22ien9liF6vO6cmON5DLUGgivFRTISs/operationStatuses/08584895520891300889?api-version=2022-09-01 HTTP/1.1" 200 21
+DEBUG: cli.azure.cli.core.sdk.policies: Response status: 200
+DEBUG: cli.azure.cli.core.sdk.policies: Response headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Cache-Control': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Pragma': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '21'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json; charset=utf-8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Expires': '-1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-subscription-reads': '11996'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-request-id': '7105f314-2eb6-489f-af4e-d82485c7a50b'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': '7105f314-2eb6-489f-af4e-d82485c7a50b'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-routing-request-id': 'JAPANWEST:20240402T104639Z:7105f314-2eb6-489f-af4e-d82485c7a50b'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Content-Type-Options': 'nosniff'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Cache': 'CONFIG_NOCACHE'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-MSEdge-Ref': 'Ref A: 83BA69ADF34C4704A430BE136E434B1A Ref B: TYO201100113031 Ref C: 2024-04-02T10:46:38Z'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Date': 'Tue, 02 Apr 2024 10:46:39 GMT'
+DEBUG: cli.azure.cli.core.sdk.policies: Response content:
+DEBUG: cli.azure.cli.core.sdk.policies: {"status":"Accepted"}
+DEBUG: cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-anayltics/providers/Microsoft.Resources/deployments/vmss_deploy_x22ien9liF6vO6cmON5DLUGgivFRTISs/operationStatuses/08584895520891300889?api-version=2022-09-01'
+DEBUG: cli.azure.cli.core.sdk.policies: Request method: 'GET'
+DEBUG: cli.azure.cli.core.sdk.policies: Request headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-client-request-id': '3f955ea8-f0de-11ee-8030-76c47aa90249'
+DEBUG: cli.azure.cli.core.sdk.policies:     'CommandName': 'vmss create'
+DEBUG: cli.azure.cli.core.sdk.policies:     'ParameterSetName': '-n -g --image --instance-count --data-disk-sizes-gb --os-disk-size-gb --debug'
+DEBUG: cli.azure.cli.core.sdk.policies:     'User-Agent': 'AZURECLI/2.58.0 (HOMEBREW) azsdk-python-core/1.28.0 Python/3.11.8 (macOS-14.4.1-arm64-arm-64bit)'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Authorization': '*****'
+DEBUG: cli.azure.cli.core.sdk.policies: Request body:
+DEBUG: cli.azure.cli.core.sdk.policies: This request has no body
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-anayltics/providers/Microsoft.Resources/deployments/vmss_deploy_x22ien9liF6vO6cmON5DLUGgivFRTISs/operationStatuses/08584895520891300889?api-version=2022-09-01 HTTP/1.1" 200 20
+DEBUG: cli.azure.cli.core.sdk.policies: Response status: 200
+DEBUG: cli.azure.cli.core.sdk.policies: Response headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Cache-Control': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Pragma': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '20'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json; charset=utf-8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Expires': '-1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-subscription-reads': '11999'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-request-id': 'c48ad465-d910-445f-8843-e43cd204e4d8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': 'c48ad465-d910-445f-8843-e43cd204e4d8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-routing-request-id': 'JAPANWEST:20240402T104710Z:c48ad465-d910-445f-8843-e43cd204e4d8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Content-Type-Options': 'nosniff'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Cache': 'CONFIG_NOCACHE'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-MSEdge-Ref': 'Ref A: C4427E3C05C647E6AD25EA69E95584F4 Ref B: TYO201100113031 Ref C: 2024-04-02T10:47:09Z'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Date': 'Tue, 02 Apr 2024 10:47:09 GMT'
+DEBUG: cli.azure.cli.core.sdk.policies: Response content:
+DEBUG: cli.azure.cli.core.sdk.policies: {"status":"Running"}
+DEBUG: cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-anayltics/providers/Microsoft.Resources/deployments/vmss_deploy_x22ien9liF6vO6cmON5DLUGgivFRTISs/operationStatuses/08584895520891300889?api-version=2022-09-01'
+DEBUG: cli.azure.cli.core.sdk.policies: Request method: 'GET'
+DEBUG: cli.azure.cli.core.sdk.policies: Request headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-client-request-id': '3f955ea8-f0de-11ee-8030-76c47aa90249'
+DEBUG: cli.azure.cli.core.sdk.policies:     'CommandName': 'vmss create'
+DEBUG: cli.azure.cli.core.sdk.policies:     'ParameterSetName': '-n -g --image --instance-count --data-disk-sizes-gb --os-disk-size-gb --debug'
+DEBUG: cli.azure.cli.core.sdk.policies:     'User-Agent': 'AZURECLI/2.58.0 (HOMEBREW) azsdk-python-core/1.28.0 Python/3.11.8 (macOS-14.4.1-arm64-arm-64bit)'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Authorization': '*****'
+DEBUG: cli.azure.cli.core.sdk.policies: Request body:
+DEBUG: cli.azure.cli.core.sdk.policies: This request has no body
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-anayltics/providers/Microsoft.Resources/deployments/vmss_deploy_x22ien9liF6vO6cmON5DLUGgivFRTISs/operationStatuses/08584895520891300889?api-version=2022-09-01 HTTP/1.1" 200 20
+DEBUG: cli.azure.cli.core.sdk.policies: Response status: 200
+DEBUG: cli.azure.cli.core.sdk.policies: Response headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Cache-Control': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Pragma': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '20'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json; charset=utf-8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Expires': '-1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-subscription-reads': '11999'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-request-id': '327d3100-004b-43b7-932b-7b28617e6c5e'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': '327d3100-004b-43b7-932b-7b28617e6c5e'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-routing-request-id': 'JAPANWEST:20240402T104740Z:327d3100-004b-43b7-932b-7b28617e6c5e'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Content-Type-Options': 'nosniff'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Cache': 'CONFIG_NOCACHE'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-MSEdge-Ref': 'Ref A: FB71BC480E26464B91ABC84DDEF47E13 Ref B: TYO201100113031 Ref C: 2024-04-02T10:47:40Z'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Date': 'Tue, 02 Apr 2024 10:47:40 GMT'
+DEBUG: cli.azure.cli.core.sdk.policies: Response content:
+DEBUG: cli.azure.cli.core.sdk.policies: {"status":"Running"}
+DEBUG: cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-anayltics/providers/Microsoft.Resources/deployments/vmss_deploy_x22ien9liF6vO6cmON5DLUGgivFRTISs/operationStatuses/08584895520891300889?api-version=2022-09-01'
+DEBUG: cli.azure.cli.core.sdk.policies: Request method: 'GET'
+DEBUG: cli.azure.cli.core.sdk.policies: Request headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-client-request-id': '3f955ea8-f0de-11ee-8030-76c47aa90249'
+DEBUG: cli.azure.cli.core.sdk.policies:     'CommandName': 'vmss create'
+DEBUG: cli.azure.cli.core.sdk.policies:     'ParameterSetName': '-n -g --image --instance-count --data-disk-sizes-gb --os-disk-size-gb --debug'
+DEBUG: cli.azure.cli.core.sdk.policies:     'User-Agent': 'AZURECLI/2.58.0 (HOMEBREW) azsdk-python-core/1.28.0 Python/3.11.8 (macOS-14.4.1-arm64-arm-64bit)'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Authorization': '*****'
+DEBUG: cli.azure.cli.core.sdk.policies: Request body:
+DEBUG: cli.azure.cli.core.sdk.policies: This request has no body
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-anayltics/providers/Microsoft.Resources/deployments/vmss_deploy_x22ien9liF6vO6cmON5DLUGgivFRTISs/operationStatuses/08584895520891300889?api-version=2022-09-01 HTTP/1.1" 200 22
+DEBUG: cli.azure.cli.core.sdk.policies: Response status: 200
+DEBUG: cli.azure.cli.core.sdk.policies: Response headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Cache-Control': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Pragma': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '22'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json; charset=utf-8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Expires': '-1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-subscription-reads': '11999'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-request-id': 'cf6e80c3-14cb-432c-b7fd-c252d9a95285'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': 'cf6e80c3-14cb-432c-b7fd-c252d9a95285'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-routing-request-id': 'JAPANWEST:20240402T104812Z:cf6e80c3-14cb-432c-b7fd-c252d9a95285'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Content-Type-Options': 'nosniff'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Cache': 'CONFIG_NOCACHE'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-MSEdge-Ref': 'Ref A: 3A938E250E444FCE82FED65613530F59 Ref B: TYO201100113031 Ref C: 2024-04-02T10:48:11Z'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Date': 'Tue, 02 Apr 2024 10:48:11 GMT'
+DEBUG: cli.azure.cli.core.sdk.policies: Response content:
+DEBUG: cli.azure.cli.core.sdk.policies: {"status":"Succeeded"}
+DEBUG: cli.azure.cli.core.sdk.policies: Request URL: 'https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-anayltics/providers/Microsoft.Resources/deployments/vmss_deploy_x22ien9liF6vO6cmON5DLUGgivFRTISs?api-version=2022-09-01'
+DEBUG: cli.azure.cli.core.sdk.policies: Request method: 'GET'
+DEBUG: cli.azure.cli.core.sdk.policies: Request headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-client-request-id': '3f955ea8-f0de-11ee-8030-76c47aa90249'
+DEBUG: cli.azure.cli.core.sdk.policies:     'CommandName': 'vmss create'
+DEBUG: cli.azure.cli.core.sdk.policies:     'ParameterSetName': '-n -g --image --instance-count --data-disk-sizes-gb --os-disk-size-gb --debug'
+DEBUG: cli.azure.cli.core.sdk.policies:     'User-Agent': 'AZURECLI/2.58.0 (HOMEBREW) azsdk-python-core/1.28.0 Python/3.11.8 (macOS-14.4.1-arm64-arm-64bit)'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Authorization': '*****'
+DEBUG: cli.azure.cli.core.sdk.policies: Request body:
+DEBUG: cli.azure.cli.core.sdk.policies: This request has no body
+DEBUG: urllib3.connectionpool: https://management.azure.com:443 "GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/rg-anayltics/providers/Microsoft.Resources/deployments/vmss_deploy_x22ien9liF6vO6cmON5DLUGgivFRTISs?api-version=2022-09-01 HTTP/1.1" 200 6163
+DEBUG: cli.azure.cli.core.sdk.policies: Response status: 200
+DEBUG: cli.azure.cli.core.sdk.policies: Response headers:
+DEBUG: cli.azure.cli.core.sdk.policies:     'Cache-Control': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Pragma': 'no-cache'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Length': '6163'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Content-Type': 'application/json; charset=utf-8'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Expires': '-1'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-ratelimit-remaining-subscription-reads': '11999'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-request-id': '1e715287-a33f-4a0e-a8dc-f5aefee73a5d'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': '1e715287-a33f-4a0e-a8dc-f5aefee73a5d'
+DEBUG: cli.azure.cli.core.sdk.policies:     'x-ms-routing-request-id': 'JAPANWEST:20240402T104813Z:1e715287-a33f-4a0e-a8dc-f5aefee73a5d'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Content-Type-Options': 'nosniff'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-Cache': 'CONFIG_NOCACHE'
+DEBUG: cli.azure.cli.core.sdk.policies:     'X-MSEdge-Ref': 'Ref A: 54D21DD39B514F18984D9FFA89A35FC0 Ref B: TYO201100113031 Ref C: 2024-04-02T10:48:12Z'
+DEBUG: cli.azure.cli.core.sdk.policies:     'Date': 'Tue, 02 Apr 2024 10:48:12 GMT'
+DEBUG: cli.azure.cli.core.sdk.policies: Response content:
+DEBUG: cli.azure.cli.core.sdk.policies: {"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Resources/deployments/vmss_deploy_x22ien9liF6vO6cmON5DLUGgivFRTISs","name":"vmss_deploy_x22ien9liF6vO6cmON5DLUGgivFRTISs","type":"Microsoft.Resources/deployments","properties":{"templateHash":"4060609195553854020","parameters":{},"mode":"Incremental","provisioningState":"Succeeded","timestamp":"2024-04-02T10:47:41.53833Z","duration":"PT1M4.1224568S","correlationId":"8d3b1774-c460-490b-9ae5-dde12ecff377","providers":[{"namespace":"Microsoft.Network","resourceTypes":[{"resourceType":"publicIPAddresses","locations":["taiwannorth"]},{"resourceType":"loadBalancers","locations":["taiwannorth"]},{"resourceType":"networkSecurityGroups","locations":["taiwannorth"]},{"resourceType":"loadBalancers/inboundNatRules","locations":["taiwannorth"]}]},{"namespace":"Microsoft.Compute","resourceTypes":[{"resourceType":"virtualMachineScaleSets","locations":["taiwannorth"]}]}],"dependencies":[{"dependsOn":[{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/publicIPAddresses/MyVmssLBPublicIP","resourceType":"Microsoft.Network/publicIPAddresses","resourceName":"MyVmssLBPublicIP"}],"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/loadBalancers/MyVmssLB","resourceType":"Microsoft.Network/loadBalancers","resourceName":"MyVmssLB"},{"dependsOn":[{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/loadBalancers/MyVmssLB","resourceType":"Microsoft.Network/loadBalancers","resourceName":"MyVmssLB"}],"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/loadBalancers/MyVmssLB/inboundNatRules/NatRule","resourceType":"Microsoft.Network/loadBalancers/inboundNatRules","resourceName":"MyVmssLB/NatRule"},{"dependsOn":[{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/loadBalancers/MyVmssLB","resourceType":"Microsoft.Network/loadBalancers","resourceName":"MyVmssLB"},{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/networkSecurityGroups/MyVmssNSG","resourceType":"Microsoft.Network/networkSecurityGroups","resourceName":"MyVmssNSG"}],"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Compute/virtualMachineScaleSets/MyVmss","resourceType":"Microsoft.Compute/virtualMachineScaleSets","resourceName":"MyVmss"}],"outputs":{"vmss":{"type":"Object","value":{"singlePlacementGroup":false,"orchestrationMode":"Flexible","upgradePolicy":{"mode":"Manual"},"virtualMachineProfile":{"osProfile":{"computerNamePrefix":"MyVmss","adminUsername":"pichuang","linuxConfiguration":{"disablePasswordAuthentication":true,"ssh":{"publicKeys":[{"path":"/home/pichuang/.ssh/authorized_keys","keyData":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMuzPZLL/FvsTzzfwscmRMjGGwBkEQnIeqeQq6k7gBejKZVlFJ1lHxqxj/sNNuiLsQk+MLb9JHSsHN9V4y9hPnk1RTicoS019ZS6F+jhT37LcrAmmWkdszeFlIdgAYf26RpXEkwwW5Hb1i9xwV6pY3qZdlU4CgY2psv5CEABWM6UR1gcbXisnhr301YyBgy9AEit3vsTwZXTL3J1Ela8nf++nLYrbKQJHZrX3R/QFf89534VCG9aN50pIAIG3teP4UAdK62XZy+Cb/jNA2MbDvnnkJc0OQNho3nOAyErZVlIU/nuVoC32tGeL3paOCjCI6Sb+jBHijSY442gtITyEF"}]},"provisionVMAgent":true,"patchSettings":{"patchMode":"ImageDefault","assessmentMode":"ImageDefault"},"enableVMAgentPlatformUpdates":false},"secrets":[],"allowExtensionOperations":true,"requireGuestProvisionSignal":true},"storageProfile":{"osDisk":{"osType":"Linux","createOption":"FromImage","caching":"ReadWrite","managedDisk":{"storageAccountType":"Premium_LRS"},"deleteOption":"Delete","diskSizeGB":40},"imageReference":{"publisher":"Canonical","offer":"0001-com-ubuntu-server-jammy","sku":"22_04-lts-gen2","version":"latest"},"dataDisks":[{"lun":0,"createOption":"Empty","caching":"None","managedDisk":{"storageAccountType":"Premium_LRS"},"deleteOption":"Delete","diskSizeGB":2}],"diskControllerType":"SCSI"},"networkProfile":{"networkApiVersion":"2020-11-01","networkInterfaceConfigurations":[{"name":"myvmsfe6fNic","properties":{"primary":true,"disableTcpStateTracking":false,"enableIPForwarding":false,"auxiliaryMode":"None","auxiliarySku":"None","deleteOption":"Delete","ipConfigurations":[{"name":"myvmsfe6fIPConfig","properties":{"privateIPAddressVersion":"IPv4","subnet":{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/virtualNetworks/MyVmVNET/subnets/MyVmSubnet"},"applicationSecurityGroups":[],"loadBalancerBackendAddressPools":[{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/loadBalancers/MyVmssLB/backendAddressPools/MyVmssLBBEPool"}],"applicationGatewayBackendAddressPools":[]}}],"networkSecurityGroup":{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/networkSecurityGroups/MyVmssNSG"},"dnsSettings":{"dnsServers":[]}}}]},"timeCreated":"2024-04-02T10:46:58.9897939+00:00"},"provisioningState":"Succeeded","uniqueId":"d886a3de-4c4d-43e2-bc1d-c1ff5bf374cd","platformFaultDomainCount":1,"constrainedMaximumCapacity":false,"timeCreated":"2024-04-02T10:46:58.9897939+00:00"}}},"outputResources":[{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Compute/virtualMachineScaleSets/MyVmss"},{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/loadBalancers/MyVmssLB"},{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/loadBalancers/MyVmssLB/inboundNatRules/NatRule"},{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/networkSecurityGroups/MyVmssNSG"},{"id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/publicIPAddresses/MyVmssLBPublicIP"}]}}
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnTransformResult [<function _resource_group_transform at 0x1053d4860>, <function _x509_from_base64_to_hex_transform at 0x1053d4900>]
+DEBUG: cli.knack.cli: Event: CommandInvoker.OnFilterResult []
+DEBUG: cli.knack.cli: Event: Cli.SuccessfulExecute []
+DEBUG: cli.knack.cli: Event: Cli.PostExecute [<function AzCliLogging.deinit_cmd_metadata_logging at 0x105382d40>]
+INFO: az_command_data_logger: exit code: 0
+INFO: cli.__main__: Command ran in 111.487 seconds (init: 1.409, invoke: 110.078)
+INFO: telemetry.main: Begin splitting cli events and extra events, total events: 1
+INFO: telemetry.client: Accumulated 0 events. Flush the clients.
+INFO: telemetry.main: Finish splitting cli events and extra events, cli events: 1
+INFO: telemetry.save: Save telemetry record of length 3789 in cache
+INFO: telemetry.main: Begin creating telemetry upload process.
+INFO: telemetry.process: Creating upload process: "/opt/homebrew/Cellar/azure-cli/2.58.0/libexec/bin/python /opt/homebrew/Cellar/azure-cli/2.58.0/libexec/lib/python3.11/site-packages/azure/cli/telemetry/__init__.py /Users/pichuang/.azure"
+INFO: telemetry.process: Return from creating process
+INFO: telemetry.main: Finish creating telemetry upload process.
+{
+  "vmss": {
+    "constrainedMaximumCapacity": false,
+    "orchestrationMode": "Flexible",
+    "platformFaultDomainCount": 1,
+    "provisioningState": "Succeeded",
+    "singlePlacementGroup": false,
+    "timeCreated": "2024-04-02T10:46:58.9897939+00:00",
+    "uniqueId": "d886a3de-4c4d-43e2-bc1d-c1ff5bf374cd",
+    "upgradePolicy": {
+      "mode": "Manual"
+    },
+    "virtualMachineProfile": {
+      "networkProfile": {
+        "networkApiVersion": "2020-11-01",
+        "networkInterfaceConfigurations": [
+          {
+            "name": "myvmsfe6fNic",
+            "properties": {
+              "auxiliaryMode": "None",
+              "auxiliarySku": "None",
+              "deleteOption": "Delete",
+              "disableTcpStateTracking": false,
+              "dnsSettings": {
+                "dnsServers": []
+              },
+              "enableIPForwarding": false,
+              "ipConfigurations": [
+                {
+                  "name": "myvmsfe6fIPConfig",
+                  "properties": {
+                    "applicationGatewayBackendAddressPools": [],
+                    "applicationSecurityGroups": [],
+                    "loadBalancerBackendAddressPools": [
+                      {
+                        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/loadBalancers/MyVmssLB/backendAddressPools/MyVmssLBBEPool",
+                        "resourceGroup": "rg-anayltics"
+                      }
+                    ],
+                    "privateIPAddressVersion": "IPv4",
+                    "subnet": {
+                      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/virtualNetworks/MyVmVNET/subnets/MyVmSubnet",
+                      "resourceGroup": "rg-anayltics"
+                    }
+                  }
+                }
+              ],
+              "networkSecurityGroup": {
+                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-anayltics/providers/Microsoft.Network/networkSecurityGroups/MyVmssNSG",
+                "resourceGroup": "rg-anayltics"
+              },
+              "primary": true
+            }
+          }
+        ]
+      },
+      "osProfile": {
+        "adminUsername": "pichuang",
+        "allowExtensionOperations": true,
+        "computerNamePrefix": "MyVmss",
+        "linuxConfiguration": {
+          "disablePasswordAuthentication": true,
+          "enableVMAgentPlatformUpdates": false,
+          "patchSettings": {
+            "assessmentMode": "ImageDefault",
+            "patchMode": "ImageDefault"
+          },
+          "provisionVMAgent": true,
+          "ssh": {
+            "publicKeys": [
+              {
+                "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMuzPZLL/FvsTzzfwscmRMjGGwBkEQnIeqeQq6k7gBejKZVlFJ1lHxqxj/sNNuiLsQk+MLb9JHSsHN9V4y9hPnk1RTicoS019ZS6F+jhT37LcrAmmWkdszeFlIdgAYf26RpXEkwwW5Hb1i9xwV6pY3qZdlU4CgY2psv5CEABWM6UR1gcbXisnhr301YyBgy9AEit3vsTwZXTL3J1Ela8nf++nLYrbKQJHZrX3R/QFf89534VCG9aN50pIAIG3teP4UAdK62XZy+Cb/jNA2MbDvnnkJc0OQNho3nOAyErZVlIU/nuVoC32tGeL3paOCjCI6Sb+jBHijSY442gtITyEF",
+                "path": "/home/pichuang/.ssh/authorized_keys"
+              }
+            ]
+          }
+        },
+        "requireGuestProvisionSignal": true,
+        "secrets": []
+      },
+      "storageProfile": {
+        "dataDisks": [
+          {
+            "caching": "None",
+            "createOption": "Empty",
+            "deleteOption": "Delete",
+            "diskSizeGB": 2,
+            "lun": 0,
+            "managedDisk": {
+              "storageAccountType": "Premium_LRS"
+            }
+          }
+        ],
+        "diskControllerType": "SCSI",
+        "imageReference": {
+          "offer": "0001-com-ubuntu-server-jammy",
+          "publisher": "Canonical",
+          "sku": "22_04-lts-gen2",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "deleteOption": "Delete",
+          "diskSizeGB": 40,
+          "managedDisk": {
+            "storageAccountType": "Premium_LRS"
+          },
+          "osType": "Linux"
+        }
+      },
+      "timeCreated": "2024-04-02T10:46:58.9897939+00:00"
+    }
+  }
+}
